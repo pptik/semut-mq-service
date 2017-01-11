@@ -3,17 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./app"
   },
   "dependencies": {
-    "amqplib": "^0.5.1",
-    "body-parser": "~1.15.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "ejs": "~2.5.2",
-    "express": "~4.14.0",
-    "morgan": "~1.7.0",
-    "rabbot": "^1.0.8",
-    "serve-favicon": "~2.3.0"
+    "amqplib": "^0.5.1"
   }
 }
