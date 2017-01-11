@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 var appconfig = require('./setup/configs.json');
+var amqp = require('amqplib/callback_api');
 var users;
 
 //connect to db
@@ -25,14 +26,33 @@ connectToMysql(function(result){
     if(result.status == true){
         exports.conn = connection;
         users = require('./models/users');
-        users.login({email: "", password:""}, function(err, response) {
+      /*  users.login({email: "", password:""}, function(err, response) {
             console.log(response);
-        });
+        }); */
         console.log(result.msg);
+        connectToBroker();
     }else {
         console.log(result.msg);
     }
 });
 
 
-//var send = require('./amqp/tests/test_service');
+function connectToBroker() {
+    amqp.connect(appconfig.broker_uri, function(err, conn) {
+        if(err){
+            console.log("connect to broker err %s", err);
+        }else {
+            console.log("connect to broker sukses");
+            conn.createChannel(function (err, ch) {
+                if (err) {
+                    console.log("create channel err %s", err);
+                } else {
+                    console.log("sukses bikin channel");
+                    exports.chnannel = ch;
+                    var semutService = require('./amqp/semutservice');
+                    semutService.startConsume();
+                }
+            });
+        }
+    });
+}
