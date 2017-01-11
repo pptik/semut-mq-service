@@ -1,5 +1,5 @@
 var amqp = require('amqplib/callback_api');
-var configs = require('../../setup/configs.json');
+var configs = require('../../setup/configs.example.json');
 var args = process.argv.slice(2);
 
 if (args.length == 0) {

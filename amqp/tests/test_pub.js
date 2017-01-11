@@ -1,5 +1,5 @@
 var amqp = require('amqplib/callback_api');
-var configs = require('../../setup/configs.json');
+var configs = require('../../setup/configs.example.json');
 
 var exchangeName = "hendra.test";
 

@@ -1,5 +1,5 @@
 var amqp = require('amqplib/callback_api');
-var configs = require('../../setup/configs.json');
+var configs = require('../../setup/configs.example.json');
 amqp.connect(configs.broker_uri, function(err, conn) {
     conn.createChannel(function(err, ch) {
         var ex = 'direct_logs';
