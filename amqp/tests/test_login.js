@@ -1,7 +1,7 @@
 var amqp = require('amqplib/callback_api');
 var configs = require('../../setup/configs.json');
 
-var exchangeName = configs.broker_setup.exchange_name;
+var exchangeName = "semut.service";
 
 function generateUuid() {
     return Math.random().toString() +
@@ -11,13 +11,13 @@ function generateUuid() {
 
 amqp.connect(configs.broker_uri, function(err, conn) {
     conn.createChannel(function(err, ch) {
-        ch.assertQueue('test.login', {exclusive: true}, function(err, q) {
+        ch.assertQueue('', {exclusive: true}, function(err, q) {
             var corr = generateUuid();
             ch.consume(q.queue, function(msg) {
                 if (msg.properties.correlationId == corr) {
                     console.log(' [.] Got : %s', msg.properties.type);
                     console.log(msg.content.toString())
-                    setTimeout(function() { conn.close(); process.exit(0) }, 500);
+                 //   setTimeout(function() { conn.close(); process.exit(0) }, 500);
 
                 }
             }, {noAck: true});
