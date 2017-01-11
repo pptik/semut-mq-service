@@ -6,6 +6,7 @@
     "start": "node ./app"
   },
   "dependencies": {
-    "amqplib": "^0.5.1"
+    "amqplib": "^0.5.1",
+    "mysql": "^2.12.0"
   }
 }
