@@ -1,7 +1,6 @@
 var mysql = require('mysql');
 var appconfig = require('./setup/configs.json');
 var amqp = require('amqplib/callback_api');
-var users;
 
 //connect to db
 var connection = mysql.createConnection({
@@ -25,10 +24,6 @@ function connectToMysql(callback){
 connectToMysql(function(result){
     if(result.status == true){
         exports.conn = connection;
-        users = require('./models/users');
-      /*  users.login({email: "", password:""}, function(err, response) {
-            console.log(response);
-        }); */
         console.log(result.msg);
         connectToBroker();
     }else {

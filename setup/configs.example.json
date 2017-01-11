@@ -1,3 +1,21 @@
 {
-  "broker_uri": ""
+  "broker_uri": "",
+  "broker_setup":{
+    "exchange_name": "",
+    "queue_service_name": ""
+
+  },
+  "broker_routes":{
+    "service_route": "",
+    "login_route": ""
+  },
+  "type":{
+    "callback" : ""
+  },
+  "mysql": {
+    "hostname" : "",
+    "user" : "",
+    "password" : "",
+    "database" : ""
+  }
 }
