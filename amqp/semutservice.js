@@ -5,7 +5,8 @@ var queueServiceName = appconfig.broker_setup.queue_service_name;
 var exchangeName = appconfig.broker_setup.exchange_name;
 
 var states = {
-    LOGIN: appconfig.broker_routes.login_route
+    LOGIN: appconfig.broker_routes.login_route,
+    SIGNUP: appconfig.broker_routes.register_route
 };
 
 function startService () {
@@ -29,6 +30,8 @@ function checkState(state, msg) {
         case states.LOGIN:
             userService.login(msg);
             break;
+        case states.SIGNUP:
+            userService.register(msg);
     }
 }
 

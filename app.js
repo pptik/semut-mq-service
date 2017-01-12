@@ -25,6 +25,12 @@ connectToMysql(function(result){
     if(result.status == true){
         exports.conn = connection;
         console.log(result.msg);
+        //test sql
+      /*  var userModel = require('./models/users');
+        var _req = {email: "3@test.com", phonenumber: "081311415274", gender: 1, birthday: "1991-09-20", password: "qwerty", name: "test"};
+        userModel.register(_req, function(err, response) {
+            console.log(response);
+        }); */
         connectToBroker();
     }else {
         console.log(result.msg);

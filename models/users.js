@@ -15,6 +15,7 @@ exports.login = function (call, callback) {
         app.conn.query('SELECT * FROM tb_user WHERE Email = "' + email + '"', function (err, rows, fields) {
             if (err) {
                 console.log(err);
+                callback(err, null);
             } else {
                 if(rows.length > 0) {
                     var data = rows[0];
@@ -26,6 +27,7 @@ exports.login = function (call, callback) {
                         app.conn.query('SELECT * FROM tb_session WHERE UserID = "' + data.ID + '" AND EndTime = "0000-00-00 00:00:00"', function (err, _rows, fields) {
                             if (err) {
                                 console.log(err);
+                                callback(err, null);
                             }else {
                                 // if ok
                                 if(_rows.length > 0) {
@@ -35,6 +37,7 @@ exports.login = function (call, callback) {
                                     app.conn.query('UPDATE tb_session SET LastTime = "' + moment().format('YYYY-MM-DD HH:mm:ss') + '", EndTime = "' + moment().format('YYYY-MM-DD HH:mm:ss') + '" WHERE ID = "' + sessdata.ID + '"', function (err, __rows, fields) {
                                         if (err) {
                                             console.log(err);
+                                            callback(err, null);
                                         } else {
                                             //console.log(__rows[0]);
                                         }
@@ -44,6 +47,7 @@ exports.login = function (call, callback) {
                                 app.conn.query('INSERT INTO tb_session (UserID, StartTime, LastTime) VALUES ("'+data.ID+'","' + moment().format('YYYY-MM-DD HH:mm:ss') + '", "' + moment().format('YYYY-MM-DD HH:mm:ss') + '")', function (err, ___rows, fields) {
                                     if (err) {
                                         console.log(err);
+                                        callback(err, null);
                                     } else {
                                         //console.log(___rows);
 
@@ -51,6 +55,7 @@ exports.login = function (call, callback) {
                                         app.conn.query('SELECT * FROM tb_user WHERE Email="'+email+'"', function (err, _rProfile, fields) {
                                             if (err) {
                                                 console.log(err);
+                                                callback(err, null);
                                             } else {
                                                 var profile_ = JSON.stringify(_rProfile[0]);
                                                 profile_ = JSON.parse(profile_);
@@ -58,6 +63,7 @@ exports.login = function (call, callback) {
                                                 app.conn.query('SELECT * FROM tb_session WHERE UserID = "' + data.ID + '" AND EndTime = "0000-00-00 00:00:00"', function (err, _rSession, fields) {
                                                     if (err) {
                                                         console.log(err);
+                                                        callback(err, null);
                                                     } else {
                                                         //console.log(_rSession[0]);
                                                         var session_ = JSON.stringify(_rSession[0]);
@@ -101,4 +107,48 @@ exports.login = function (call, callback) {
             }
         });
     }
+}
+
+
+
+exports.register = function (call, callback) {
+    var email = call.email;
+    var phonenumber = call.phonenumber;
+    var gender = call.gender;
+    var birthday = call.birthday;
+    var password = call.password;
+    var name = call.name;
+    app.conn.query('SELECT * FROM tb_user WHERE Email="'+email+'"', function (err, rows, fields) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else {
+            if(rows.length > 0) {
+                var res = {success: false, message: "Email sudah digunakan!"};
+                callback(null, {response: res});
+            }else {
+                app.conn.query('INSERT INTO tb_user (Name, Email, CountryCode, PhoneNumber, Gender, Birthday, Password, Poin, PoinLevel, AvatarID, Joindate, deposit) VALUES ("'
+                    +name+'","'
+                    + email+ '", "'
+                    + 62+ '", "'
+                    + phonenumber+ '", "'
+                    + gender+ '", "'
+                    + birthday+ '", "'
+                    + md5(password)+ '", "'
+                    + 100+ '", "'
+                    + 100+ '", "'
+                    + gender+ '", "'
+                    + moment().format('YYYY-MM-DD HH:mm:ss')+ '", "'
+                    + 0 + '")', function (err, rows, fields) {
+                    if(err){
+                        console.log("error : "+err)
+                    }else {
+                        console.log(rows);
+                        var res = {success: true, message: 'Sukses Membuat Akun, silahkan login!'}
+                        callback(null, {response: res});
+                    }
+                });
+            }
+        }
+    });
 }
