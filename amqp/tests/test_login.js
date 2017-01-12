@@ -17,7 +17,7 @@ amqp.connect(configs.broker_uri, function(err, conn) {
                 if (msg.properties.correlationId == corr) {
                     console.log(' [.] Got : %s', msg.properties.type);
                     console.log(msg.content.toString())
-                 //   setTimeout(function() { conn.close(); process.exit(0) }, 500);
+                 //   setTimeout(function() { pool.close(); process.exit(0) }, 500);
 
                 }
             }, {noAck: true});

@@ -19,12 +19,12 @@ amqp.connect(configs.broker_uri, function(err, conn) {
                 if (msg.properties.correlationId == corr) {
                     console.log(' [.] Got : %s', msg.properties.type);
                     console.log(msg.content.toString())
-                    //   setTimeout(function() { conn.close(); process.exit(0) }, 500);
+                    //   setTimeout(function() { pool.close(); process.exit(0) }, 500);
 
                 }
             }, {noAck: true});
             ch.assertExchange(exchangeName, 'topic', {durable: false});
-            var _req = {email: "4@test.com", phonenumber: "081311415274", gender: 1, birthday: "1991-09-20", password: "qwerty", name: "test"};
+            var _req = {email: "5@test.com", phonenumber: "081311415274", gender: 1, birthday: "1991-09-20", password: "qwerty", name: "test"};
             ch.publish(exchangeName, "semut.service.app.register", new Buffer(JSON.stringify(_req)),
                 { correlationId: corr, replyTo: q.queue});
             console.log(" [x] Sent ");
@@ -33,5 +33,3 @@ amqp.connect(configs.broker_uri, function(err, conn) {
 
     });
 });
-
-
