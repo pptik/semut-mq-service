@@ -9,7 +9,9 @@ function generateUuid() {
 }
 
 amqp.connect(configs.broker_uri, function(err, conn) {
-
+    conn.on('error', function connectionClose() {
+        console.log('Connection closed');
+    });
     conn.createChannel(function(err, ch) {
         ch.assertQueue('', {exclusive: true}, function(err, q) {
             var corr = generateUuid();

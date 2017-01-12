@@ -33,7 +33,12 @@ connectToMysql(function(result){
         }); */
         connectToBroker();
     }else {
-        console.log(result.msg);
+        console.log("error connect to db : "+result.msg);
+        console.log("try connect in 5 secs ...");
+        setTimeout(function() {
+            process.exit(0);
+            // todo: run with forever js
+        }, 5000);
     }
 });
 
@@ -42,8 +47,16 @@ function connectToBroker() {
     amqp.connect(appconfig.broker_uri, function(err, conn) {
         if(err){
             console.log("connect to broker err %s", err);
+            console.log("retry to connect in 5 secs ...")
+            setTimeout(function() {
+                connectToBroker();
+            }, 5000);
         }else {
             console.log("connect to broker sukses");
+            conn.on('error', function connectionClose() {
+                console.log('Connection closed, try reconnect ...');
+                connectToBroker();
+            });
             conn.createChannel(function (err, ch) {
                 if (err) {
                     console.log("create channel err %s", err);
