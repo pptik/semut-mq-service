@@ -17,14 +17,12 @@ exports.login = function (call, callback) {
             if(err){
                 console.log(err);
                 callback(err, null);
-                connection.release();
             }
             else {
                 connection.query('SELECT * FROM tb_user WHERE Email = "' + email + '"', function (err, rows, fields) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
-                        connection.release();
                     } else {
                         if (rows.length > 0) {
                             var data = rows[0];
@@ -36,7 +34,6 @@ exports.login = function (call, callback) {
                                 connection.query('SELECT * FROM tb_session WHERE UserID = "' + data.ID + '" AND EndTime = "0000-00-00 00:00:00"', function (err, _rows, fields) {
                                     if (err) {
                                         console.log(err);
-                                        connection.release();
                                         callback(err, null);
                                     } else {
                                         // if ok
@@ -48,7 +45,6 @@ exports.login = function (call, callback) {
                                                 if (err) {
                                                     console.log(err);
                                                     callback(err, null);
-                                                    connection.release();
                                                 } else {
                                                     //console.log(__rows[0]);
                                                 }
@@ -59,7 +55,6 @@ exports.login = function (call, callback) {
                                             if (err) {
                                                 console.log(err);
                                                 callback(err, null);
-                                                connection.release();
                                             } else {
                                                 //console.log(___rows);
 
@@ -68,7 +63,6 @@ exports.login = function (call, callback) {
                                                     if (err) {
                                                         console.log(err);
                                                         callback(err, null);
-                                                        connection.release();
                                                     } else {
                                                         var profile_ = JSON.stringify(_rProfile[0]);
                                                         profile_ = JSON.parse(profile_);
@@ -142,7 +136,6 @@ exports.register = function (call, callback) {
             if (err) {
                 console.log(err);
                 callback(err, null);
-                connection.release();
             } else {
                 if(rows.length > 0) {
                     var res = {success: false, message: "Email sudah digunakan!"};
@@ -163,7 +156,6 @@ exports.register = function (call, callback) {
                         + 0 + '")', function (err, rows, fields) {
                         if(err){
                             console.log("error : "+err)
-                            connection.release();
                         }else {
                             console.log(rows);
                             var res = {success: true, message: 'Sukses Membuat Akun, silahkan login!'}

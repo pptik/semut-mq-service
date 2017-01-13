@@ -22,7 +22,7 @@ amqp.connect(configs.broker_uri, function(err, conn) {
                 }
             }, {noAck: true});
             ch.assertExchange(exchangeName, 'topic', {durable: false});
-            var _s = {email: "hafiyyan.jtk10@gmail.com", password: ""};
+            var _s = {email: "hafiyyan.jtk10@gmail.com", password: "123456"};
             ch.publish(exchangeName, "semut.service.app.login", new Buffer(JSON.stringify(_s)),
                 { correlationId: corr, replyTo: q.queue});
             console.log(" [x] Sent ");
