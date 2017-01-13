@@ -6,7 +6,8 @@ var exchangeName = appconfig.broker_setup.exchange_name;
 
 var states = {
     LOGIN: appconfig.broker_routes.login_route,
-    SIGNUP: appconfig.broker_routes.register_route
+    SIGNUP: appconfig.broker_routes.register_route,
+    GET_PROFILE: appconfig.broker_routes.get_profile
 };
 
 function startService () {
@@ -32,6 +33,10 @@ function checkState(state, msg) {
             break;
         case states.SIGNUP:
             userService.register(msg);
+            break;
+        case states.GET_PROFILE:
+            userService.getprofile(msg);
+            break;
     }
 }
 

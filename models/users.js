@@ -2,6 +2,7 @@ var  app = require('../app');
 var jsesc = require('jsesc');
 var md5 = require('md5');
 var moment 	= require('moment');
+var appconfig = require('../setup/configs.json');
 
 exports.login = function (call, callback) {
     var email = call.email;
@@ -166,5 +167,65 @@ exports.register = function (call, callback) {
                 }
             }
         });
+    });
+}
+
+
+exports.getProfile = function (call, callback) {
+    var sessionId = call.sessionID;
+    app.pool.getConnection(function(err, connection) {
+        connection.query('SELECT * FROM tb_session WHERE ID="'+sessionId+'" AND EndTime = "0000-00-00 00:00:00"', function (err, rows, fields) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                console.log(rows);
+                if(rows[0]) {
+                    getProfileById(rows[0].UserID, connection, function (err, result) {
+                        if (err) {
+                            callback(err, null);
+                        } else {
+                            callback(null, result);
+                            connection.release();
+                        }
+                    });
+                }else {
+                    callback(null, appconfig.messages.session_id_null);
+                    connection.release();
+                }
+            }
+        });
+    });
+}
+
+
+
+//------------ function ----------------//
+
+function getProfileById(iduser, conn, callback) {
+    conn.query('SELECT * FROM tb_user WHERE ID="'+iduser+'"', function (err, rows, fields) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else {
+            console.log(rows[0]);
+            var data = rows[0];
+            delete data['Password'];
+            delete data['flag'];
+            delete data['foto'];
+            delete data['PushID'];
+            delete data['Path_foto'];
+            delete data['Nama_foto'];
+            delete data['Path_ktp'];
+            delete data['Nama_ktp'];
+            delete data['facebookID'];
+            delete data['ID_role'];
+            delete data['ID_ktp'];
+            delete data['Plat_motor'];
+            delete data['VerifiedNumber'];
+            delete data['Barcode'];
+            delete data['Status_online'];
+            callback(null, rows[0]);
+        }
     });
 }
