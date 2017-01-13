@@ -9,7 +9,7 @@
     "service_route": "semut.service.app.*",
     "login_route": "semut.service.app.login",
     "register_route": "semut.service.app.register",
-    "get_profile": "semut.service.app.getprofile"
+    "get_profile_route": "semut.service.app.getprofile"
   },
   "type":{
     "callback" : "callback"

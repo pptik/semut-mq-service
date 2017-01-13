@@ -11,19 +11,19 @@ function generateUuid() {
 
 amqp.connect(configs.broker_uri, function(err, conn) {
     conn.createChannel(function(err, ch) {
-        ch.assertQueue('', {exclusive: true}, function(err, q) {
+        ch.assertQueue('semut.user.486', {exclusive: true}, function(err, q) {
             var corr = generateUuid();
             ch.consume(q.queue, function(msg) {
                 if (msg.properties.correlationId == corr) {
                     console.log(' [.] Got : %s', msg.properties.type);
                     console.log(msg.content.toString())
-                 //   setTimeout(function() { pool.close(); process.exit(0) }, 500);
+                       setTimeout(function() { process.exit(0) }, 500);
 
                 }
             }, {noAck: true});
             ch.assertExchange(exchangeName, 'topic', {durable: false});
-            var _s = {email: "5@test.com", password: "qwerty"};
-            ch.publish(exchangeName, "semut.service.app.login", new Buffer(JSON.stringify(_s)),
+            var _s = {sessionID: "2207", userID:"778"};
+            ch.publish(exchangeName, "semut.service.app.getprofilebyid", new Buffer(JSON.stringify(_s)),
                 { correlationId: corr, replyTo: q.queue});
             console.log(" [x] Sent ");
 

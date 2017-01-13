@@ -22,7 +22,7 @@ amqp.connect(configs.broker_uri, function(err, conn) {
                 }
             }, {noAck: true});
             ch.assertExchange(exchangeName, 'topic', {durable: false});
-            var _s = {sessionID: "22064"};
+            var _s = {sessionID: "2207"};
             ch.publish(exchangeName, "semut.service.app.getprofile", new Buffer(JSON.stringify(_s)),
                 { correlationId: corr, replyTo: q.queue});
             console.log(" [x] Sent ");

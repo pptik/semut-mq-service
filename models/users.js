@@ -88,7 +88,8 @@ exports.login = function (call, callback) {
                                                                     Poinlevel: profile_.PoinLevel,
                                                                     Visibility: profile_.Visibility,
                                                                     Verified: profile_.Verified,
-                                                                    AvatarID: profile_.AvatarID
+                                                                    AvatarID: profile_.AvatarID,
+                                                                    UserID : profile_.ID
                                                                 }
                                                                 var res = {
                                                                     success: true,
@@ -174,14 +175,13 @@ exports.register = function (call, callback) {
 exports.getProfile = function (call, callback) {
     var sessionId = call.sessionID;
     app.pool.getConnection(function(err, connection) {
-        connection.query('SELECT * FROM tb_session WHERE ID="'+sessionId+'" AND EndTime = "0000-00-00 00:00:00"', function (err, rows, fields) {
-            if (err) {
+        checkSession(sessionId, connection, function (err, result) {
+            if(err){
                 console.log(err);
                 callback(err, null);
-            } else {
-                console.log(rows);
-                if(rows[0]) {
-                    getProfileById(rows[0].UserID, connection, function (err, result) {
+            }else {
+                if(result.id){
+                    getProfileById(result.id, connection, function (err, result) {
                         if (err) {
                             callback(err, null);
                         } else {
@@ -195,17 +195,66 @@ exports.getProfile = function (call, callback) {
                         }
                     });
                 }else {
-                    callback(null, {response: appconfig.messages.session_id_null});
+                    callback(null, result);
                     connection.release();
                 }
             }
-        });
+        })
     });
 }
 
 
+exports.getProfileById = function (call, callback) {
+    var sessionId = call.sessionID;
+    var userId = call.userID;
+    app.pool.getConnection(function(err, connection) {
+        checkSession(sessionId, connection, function (err, result) {
+            if(err){
+                console.log(err);
+                callback(err, null);
+            }else {
+                if(result.id){
+                    getProfileById(userId, connection, function (err, pResult) {
+                        if (err) {
+                            callback(err, null);
+                        } else {
+                            var res = {
+                                success: true,
+                                message: "Sukses memuat permintaan",
+                                Profile: pResult
+                            };
+                            getRelationStatus(result.id, userId, connection, function (err, rResult) {
+                                if (err) {
+                                    console.log(err);
+                                    callback(err, null);
+                                    connection.release();
+                                } else {
+                                    if(rResult == false){
+                                        res.Friend = false;
+                                        callback(null, {response: res});
+                                        connection.release();
+                                    }else {
+                                        res.Friend = true;
+                                        res.RelationInfo = rResult;
+                                        callback(null, {response: res});
+                                        connection.release();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }else {
+                    callback(null, result);
+                    connection.release();
+                }
+            }
+        })
+    });
 
-//------------ function ----------------//
+}
+
+
+//----------------------------------- function ---------------------------------------------//
 
 function getProfileById(iduser, conn, callback) {
     conn.query('SELECT * FROM tb_user WHERE ID="'+iduser+'"', function (err, rows, fields) {
@@ -214,23 +263,66 @@ function getProfileById(iduser, conn, callback) {
             callback(err, null);
         } else {
             //console.log(rows[0]);
-            var data = rows[0];
-            delete data['Password'];
-            delete data['flag'];
-            delete data['foto'];
-            delete data['PushID'];
-            delete data['Path_foto'];
-            delete data['Nama_foto'];
-            delete data['Path_ktp'];
-            delete data['Nama_ktp'];
-            delete data['facebookID'];
-            delete data['ID_role'];
-            delete data['ID_ktp'];
-            delete data['Plat_motor'];
-            delete data['VerifiedNumber'];
-            delete data['Barcode'];
-            delete data['Status_online'];
-            callback(null, data);
+            if(rows[0]) {
+                var data = rows[0];
+                delete data['Password'];
+                delete data['flag'];
+                delete data['foto'];
+                delete data['PushID'];
+                delete data['Path_foto'];
+                delete data['Nama_foto'];
+                delete data['Path_ktp'];
+                delete data['Nama_ktp'];
+                delete data['facebookID'];
+                delete data['ID_role'];
+                delete data['ID_ktp'];
+                delete data['Plat_motor'];
+                delete data['VerifiedNumber'];
+                delete data['Barcode'];
+                delete data['Status_online'];
+                callback(null, data);
+            }else {
+                callback(null, appconfig.messages.user_not_found);
+            }
+        }
+    });
+}
+
+
+function checkSession(sessid, conn, callback) {
+    conn.query('SELECT * FROM tb_session WHERE ID="'+sessid+'" AND EndTime = "0000-00-00 00:00:00"', function (err, rows, fields) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else {
+            console.log(rows);
+            if(rows[0]) {
+                callback(null, {id: rows[0].UserID});
+            }else {
+                callback(null, {response: appconfig.messages.session_id_null});
+            }
+        }
+    });
+}
+
+function getRelationStatus(id1, id2,conn, callback) {
+    conn.query('SELECT * FROM tb_relation WHERE ID_REQUEST="'+id1+'" AND ID_RESPONSE ="' + id2 + '" OR ID_REQUEST="'+id2+'" AND ID_RESPONSE ="' + id1 + '"', function (err, rows, fields) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else {
+            if(rows[0]) {
+                var friend = {};
+                friend['RelationID'] = rows[0].ID;
+                friend['IsRequest'] = false;
+                if(rows[0].ID_REQUEST == id2){
+                    friend['IsRequest'] = true;
+                }
+                if(rows[0].State == 1) friend['Status'] = "Pending"; else friend['Status'] = "Confirmed"
+                callback(null, friend);
+            }else {
+                callback(null, false);
+            }
         }
     });
 }

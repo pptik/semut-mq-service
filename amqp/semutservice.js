@@ -7,7 +7,8 @@ var exchangeName = appconfig.broker_setup.exchange_name;
 var states = {
     LOGIN: appconfig.broker_routes.login_route,
     SIGNUP: appconfig.broker_routes.register_route,
-    GET_PROFILE: appconfig.broker_routes.get_profile
+    GET_PROFILE: appconfig.broker_routes.get_profile_route,
+    GET_PROFILE_BY_ID: appconfig.broker_routes.get_profile_by_id_route
 };
 
 function startService () {
@@ -18,6 +19,7 @@ function startService () {
         } else {
             app.chnannel.bindQueue(q.queue, exchangeName, appconfig.broker_routes.service_route);
             app.chnannel.consume(q.queue, function (msg) {
+                console.log(msg.content.toString());
                 checkState(msg.fields.routingKey, msg);
             }, {noAck: true});
         }
@@ -38,6 +40,10 @@ function checkState(state, msg) {
         case states.GET_PROFILE:
             userService.getprofile(msg);
             console.log("request get profile diterima");
+            break;
+        case states.GET_PROFILE_BY_ID:
+            userService.getProfileById(msg);
+            console.log("request get profile by id diterima");
             break;
     }
 }

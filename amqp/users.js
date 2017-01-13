@@ -59,4 +59,21 @@ exports.getprofile = function (msg) {
     });
 };
 
+exports.getProfileById = function (msg) {
+    var req = JSON.parse(msg.content.toString());
+    userModel.getProfileById(req, function(err, response) {
+        var res;
+        if(err){
+            res = appconfig.messages.server_error;
+        }else {
+            console.log(response);
+            res = response;
+        }
+        app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(res)), {
+            correlationId: msg.properties.correlationId,
+            type: appconfig.type.callback
+        });
+    });
+}
+
 

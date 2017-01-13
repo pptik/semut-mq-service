@@ -42,6 +42,7 @@ function connectToBroker() {
         }else {
             console.log("connect to broker sukses");
             conn.on('error', function connectionClose() {
+                console.log(connectionClose().msg);
                 console.log('Connection closed, try reconnect ...');
                 connectToBroker();
             });
