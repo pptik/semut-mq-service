@@ -6,16 +6,32 @@
 
   },
   "broker_routes":{
-    "service_route": "",
-    "login_route": ""
+    "service_route": "semut.service.app.*",
+    "login_route": "semut.service.app.login",
+    "register_route": "semut.service.app.register",
+    "get_profile": "semut.service.app.getprofile"
   },
   "type":{
-    "callback" : ""
+    "callback" : "callback"
   },
   "mysql": {
     "hostname" : "",
     "user" : "",
     "password" : "",
     "database" : ""
+  },
+  "messages":{
+    "server_error":{
+      "success": false,
+      "message": "Permintaan tidak dapat diperoses atau server sedang bermasalah. Silahkan coba beberapa saat lagi."
+    },
+    "parameter_incomplete":{
+      "success": false,
+      "message": "Parameter tidak lengkap!"
+    },
+    "session_id_null":{
+      "success": false,
+      "message": "Sesi telah habis atau tidak terdaftar."
+    }
   }
 }
