@@ -185,12 +185,17 @@ exports.getProfile = function (call, callback) {
                         if (err) {
                             callback(err, null);
                         } else {
-                            callback(null, result);
+                            var res = {
+                                success: true,
+                                message: "Sukses memuat permintaan",
+                                Profile: result
+                            };
+                            callback(null, {response: res});
                             connection.release();
                         }
                     });
                 }else {
-                    callback(null, appconfig.messages.session_id_null);
+                    callback(null, {response: appconfig.messages.session_id_null});
                     connection.release();
                 }
             }
@@ -208,7 +213,7 @@ function getProfileById(iduser, conn, callback) {
             console.log(err);
             callback(err, null);
         } else {
-            console.log(rows[0]);
+            //console.log(rows[0]);
             var data = rows[0];
             delete data['Password'];
             delete data['flag'];
@@ -225,7 +230,7 @@ function getProfileById(iduser, conn, callback) {
             delete data['VerifiedNumber'];
             delete data['Barcode'];
             delete data['Status_online'];
-            callback(null, rows[0]);
+            callback(null, data);
         }
     });
 }

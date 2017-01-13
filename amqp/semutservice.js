@@ -18,7 +18,6 @@ function startService () {
         } else {
             app.chnannel.bindQueue(q.queue, exchangeName, appconfig.broker_routes.service_route);
             app.chnannel.consume(q.queue, function (msg) {
-                console.log(" [x] %s: ", msg.fields.routingKey);
                 checkState(msg.fields.routingKey, msg);
             }, {noAck: true});
         }
@@ -30,12 +29,15 @@ function checkState(state, msg) {
     switch (state){
         case states.LOGIN:
             userService.login(msg);
+            console.log("request login diterima");
             break;
         case states.SIGNUP:
             userService.register(msg);
+            console.log("request register diterima");
             break;
         case states.GET_PROFILE:
             userService.getprofile(msg);
+            console.log("request get profile diterima");
             break;
     }
 }
