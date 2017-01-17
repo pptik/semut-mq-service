@@ -1,5 +1,6 @@
 var app = require('../app');
 var db = app.db;
+var rest = require('restler');
 
 exports.updateTracker = function (query, callback) {
     db.collection('tb_tracker', function(err, collection) {
@@ -10,17 +11,49 @@ exports.updateTracker = function (query, callback) {
                 if(items[0]){
                     console.log(items[0]);
                     if(items[0].Date == ""){
-                        collection.updateOne({Mac: query['MAC']}
-                            , { $set: { Speed : query['Speed'], Date: query['date'], Time: query['time'], Data: query['data']} }, function(err, result) {
-                                if(err){
-                                    callback(err, null);
-                                }else {
-                                 //   console.log(result);
-                                    callback(null, {success: true, message: "berhasil update"});
-                                }
-                            });
+                        getLocation(query['data'][0], query['data'][1], function (err, result) {
+                            var loc;
+                            if(err){
+                                loc = "Lokasi tidak terdeteksi"
+                            }else {
+                                loc = result;
+                            }
+                            collection.updateOne({Mac: query['MAC']}
+                                , { $set: { Speed : query['Speed'], Date: query['date'], Time: query['time'], Data: query['data'], Lokasi: loc}}, function(err, result) {
+                                    if(err){
+                                        console.log(err);
+                                        callback(err, null);
+                                    }else {
+                                        db.collection('tb_tracker_history', function (err, collection) {
+                                            if(err){
+                                                callback(err,null);
+                                            }else {
+                                                var _query = {
+                                                    Mac: query['MAC'],
+                                                    Speed : query['Speed'],
+                                                    Date: query['date'],
+                                                    Time: query['time'],
+                                                    Data: query['data'],
+                                                    Lokasi: loc
+                                                };
+                                                collection.insertOne(_query, function (err, result) {
+                                                    if (err) {
+                                                        callback(err, null);
+                                                    } else {
+                                                        callback(null, {success: true, message: "berhasil update"});
+                                                    }
+                                                });
+
+                                            }
+                                        });
+
+                                    }
+                                });
+                        });
+
                     }else {
                         callback(null, {success: false, message: "device mengirim lokasi 0"});
+
                     }
 
                 }else {
@@ -28,5 +61,20 @@ exports.updateTracker = function (query, callback) {
                 }
             }
         });
+    });
+};
+
+function getLocation(lat, lon, callback) {
+    rest.get('http://nominatim.openstreetmap.org/reverse?format=json&lat='+lat+'&lon='+lon+'&zoom=18&addressdetails=1').on('complete', function(result) {
+        if (result instanceof Error) {
+            callback(result.message, null);
+        } else {
+          //  console.log(result);
+            if(result['display_name']) {
+                callback(null, result['display_name']);
+            }else {
+                callback(null, "Lokasi tidak terdeteksi");
+            }
+        }
     });
 }
