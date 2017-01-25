@@ -17,7 +17,7 @@ var states = {
 
 function startService () {
     app.chnannel.assertExchange(exchangeName, 'topic', {durable: false});
-    app.chnannel.assertQueue(queueServiceName, {exclusive: true}, function (err, q) {
+    app.chnannel.assertQueue(queueServiceName, {exclusive: false}, function (err, q) {
         if (err) {
             console.log("error : %s",err);
         } else {
@@ -33,7 +33,7 @@ function startService () {
 
 function startGpsService () {
     app.chnannel.assertExchange(defaultExchangeTopic, 'topic', {durable: true});
-    app.chnannel.assertQueue(queueGps, {exclusive: true}, function (err, q) {
+    app.chnannel.assertQueue(queueGps, {exclusive: false}, function (err, q) {
         if (err) {
             console.log("error : %s",err);
         } else {
