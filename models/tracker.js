@@ -10,7 +10,7 @@ exports.updateTracker = function (query, callback) {
             }else {
                 if(items[0]){
                     console.log(items[0]);
-                    if(items[0].Date == ""){
+                    if(query['data'][0] != 0){
                         getLocation(query['data'][0], query['data'][1], function (err, result) {
                             var loc;
                             if(err){
