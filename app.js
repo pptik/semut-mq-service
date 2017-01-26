@@ -62,7 +62,7 @@ function connectToBroker() {
                             console.log("sukses bikin channel");
                             exports.chnannel = ch;
                             var semutService = require('./amqp/semutservice');
-                            semutService.startConsume();
+                        //    semutService.startConsume();
                             semutService.startGpsConsume();
                         }
                     });
