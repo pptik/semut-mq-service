@@ -1,37 +1,10 @@
-var mysql = require('mysql');
 var appconfig = require('./setup/configs.json');
 var amqp = require('amqplib/callback_api');
 var database = require('./setup/database');
 
-//connect to db
-var pool = mysql.createPool({
-    host     : appconfig.mysql['hostname'],
-    user     : appconfig.mysql['user'],
-    password : appconfig.mysql['password'],
-    database : appconfig.mysql['database']
-});
-
-
-function connectToMysql(callback){
-    callback({status: true, msg: "MySql :  Connection to  "+appconfig.mysql['hostname'] + " success"});
-}
 
 
 
-connectToMysql(function(result){
-    if(result.status == true){
-        exports.pool = pool;
-        console.log(result.msg);
-        connectToBroker();
-    }else {
-        console.log("error connect to db : "+result.msg);
-        console.log("try connect in 5 secs ...");
-        setTimeout(function() {
-            process.exit(0);
-            // todo: run with forever js
-        }, 5000);
-    }
-});
 
 
 function connectToBroker() {
@@ -43,15 +16,14 @@ function connectToBroker() {
                 connectToBroker();
             }, 5000);
         }else {
+            console.log("connect to broker sukses");
             database.connect(function (err, db) {
                 if (err) {
                     console.log(err);
                 } else {
-                    //connect to mongo
                     exports.db = db;
-                    console.log("connect to broker sukses");
+                    console.log("connect mongodb sukses");
                     conn.on('error', function connectionClose() {
-                        //console.log(connectionClose().msg);
                         console.log('Connection closed, try reconnect ...');
                         connectToBroker();
                     });
@@ -62,7 +34,6 @@ function connectToBroker() {
                             console.log("sukses bikin channel");
                             exports.chnannel = ch;
                             var semutService = require('./amqp/semutservice');
-                        //    semutService.startConsume();
                             semutService.startGpsConsume();
                         }
                     });
@@ -71,3 +42,5 @@ function connectToBroker() {
         }
     });
 }
+
+connectToBroker();
