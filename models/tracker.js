@@ -64,6 +64,15 @@ exports.updateTracker = function (query, callback) {
     });
 };
 
+
+exports.getAllTracker = function (query, callback) {
+  var trackerCollection = db.collection('tb_tracker');
+    trackerCollection.find({}).toArray(function (err, results) {
+        if(err)callback(err, null);
+        else callback(null, results);
+    });
+};
+
 function getLocation(lat, lon, callback) {
     rest.get('http://nominatim.openstreetmap.org/reverse?format=json&lat='+lat+'&lon='+lon+'&zoom=18&addressdetails=1').on('complete', function(result) {
         if (result instanceof Error) {

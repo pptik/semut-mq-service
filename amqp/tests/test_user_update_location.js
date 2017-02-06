@@ -20,13 +20,18 @@ amqp.connect(configs.broker_uri, function(err, conn) {
                 }
             }, {noAck: true});
             ch.assertExchange(exchangeName, 'topic', {durable: false});
-            var _s = {sessionID: "2207"};
-            ch.publish(exchangeName, "semut.service.app.getprofile", new Buffer(JSON.stringify(_s)),
+            var _s = {
+                Date: new Date(),
+                SessionID: "f77a4db0da83ab3aec354f5580ef71c8",
+                Altitude: 0,
+                Latitude: -6.88821,
+                Longitude: 107.610061,
+                Speed: 0
+            };
+            ch.publish(exchangeName, "semut.services.updatelocation", new Buffer(JSON.stringify(_s)),
                 { correlationId: corr, replyTo: q.queue});
             console.log(" [x] Sent ");
 
         });
     });
 });
-
-

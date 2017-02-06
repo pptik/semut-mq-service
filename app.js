@@ -27,6 +27,7 @@ function connectToBroker() {
                         console.log('Connection closed, try reconnect ...');
                         connectToBroker();
                     });
+
                     conn.createChannel(function (err, ch) {
                         if (err) {
                             console.log("create channel err %s", err);
@@ -34,9 +35,11 @@ function connectToBroker() {
                             console.log("sukses bikin channel");
                             exports.chnannel = ch;
                             var semutService = require('./amqp/semutservice');
-                            semutService.startGpsConsume();
+                           // semutService.startGpsConsume();
+                            semutService.startService();
                         }
                     });
+
                 }
             });
         }

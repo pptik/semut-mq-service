@@ -13,17 +13,24 @@ exports.updateTracker = function (msg) {
            console.log(response);
        }
     });
-    /*userModel.login(req, function(err, response) {
+};
+
+
+exports.getAllTracker = function (msg) {
+    var req = JSON.parse(msg.content.toString());
+    console.log(req);
+    trackerModel.getAllTracker(req, function (err, results) {
         var res;
-        if(err){
-            res = appconfig.messages.server_error;
-        }else {
-            console.log(response);
-            res = response;
+        if(err) {
+            res = err;
+        }
+        else {
+            res = results;
         }
         app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(res)), {
             correlationId: msg.properties.correlationId,
             type: appconfig.type.callback
         });
-    }); */
+
+    });
 };
