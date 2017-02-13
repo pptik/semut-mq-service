@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/amqp/tests/test_user_update_location.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/amqp/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/semutservice.js" afterPath="$PROJECT_DIR$/amqp/semutservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/tests/test_getprofile.js" afterPath="$PROJECT_DIR$/amqp/tests/test_getprofile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/tracker.js" afterPath="$PROJECT_DIR$/amqp/tracker.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/tracker.js" afterPath="$PROJECT_DIR$/models/tracker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup/database.js" afterPath="$PROJECT_DIR$/setup/database.js" />
     </list>
     <ignored path="semut-mq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,31 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="23" column="87" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amqp/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_user_update_location.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/amqp/tests/test_user_update_location.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="720">
+              <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -192,8 +165,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -274,6 +245,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -777,7 +750,8 @@
       <workItem from="1485418396954" duration="584000" />
       <workItem from="1485442994350" duration="1985000" />
       <workItem from="1485484273199" duration="635000" />
-      <workItem from="1486364767546" duration="5565000" />
+      <workItem from="1486364767546" duration="5620000" />
+      <workItem from="1486973762115" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="re-import">
       <created>1484108582918</created>
@@ -940,11 +914,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485484900061</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add user update location">
+      <created>1486370481298</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1486370481299</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79032000" />
+    <option name="totallyTimeSpent" value="79141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="32" width="1405" height="804" extended-state="0" />
@@ -1037,7 +1018,8 @@
     <MESSAGE value="Update gps service" />
     <MESSAGE value="fixing undefined object while update tracker loc" />
     <MESSAGE value="remove user model, update package.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove user model, update package.json" />
+    <MESSAGE value="Add user update location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user update location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1067,7 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,7 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1243,7 +1223,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1251,7 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1259,7 +1237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,7 +1244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,7 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="32" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1303,10 +1276,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
+    <entry file="file://$PROJECT_DIR$/amqp/tests/test_user_update_location.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="23" column="87" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
+        <state relative-caret-position="135">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1319,10 +1292,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amqp/tests/test_user_update_location.js">
+    <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="720">
+          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
           <folding />
         </state>
       </provider>
