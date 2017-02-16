@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/semutservice.js" afterPath="$PROJECT_DIR$/amqp/semutservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/users.js" afterPath="$PROJECT_DIR$/amqp/users.js" />
     </list>
     <ignored path="semut-mq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,11 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+            <state relative-caret-position="429">
+              <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/amqp/users.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -72,7 +82,7 @@
       <file leaf-file-name="tracker.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amqp/tracker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="180">
               <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
               <folding />
             </state>
@@ -82,8 +92,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="375">
+              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -137,11 +147,11 @@
         <option value="$PROJECT_DIR$/models/tracker.js" />
         <option value="$PROJECT_DIR$/amqp/tests/test_getprofile.js" />
         <option value="$PROJECT_DIR$/setup/configs.json" />
-        <option value="$PROJECT_DIR$/amqp/users.js" />
         <option value="$PROJECT_DIR$/amqp/tests/test_user_update_location.js" />
         <option value="$PROJECT_DIR$/amqp/tracker.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/amqp/semutservice.js" />
+        <option value="$PROJECT_DIR$/amqp/users.js" />
       </list>
     </option>
   </component>
@@ -155,8 +165,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="18" />
-    <option name="y" value="32" />
+    <option name="x" value="9" />
+    <option name="y" value="27" />
     <option name="width" value="1405" />
     <option name="height" value="804" />
   </component>
@@ -185,6 +195,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -266,8 +278,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -773,7 +783,8 @@
       <workItem from="1486364767546" duration="5620000" />
       <workItem from="1486973762115" duration="133000" />
       <workItem from="1487061970901" duration="443000" />
-      <workItem from="1487251307352" duration="802000" />
+      <workItem from="1487251307352" duration="2135000" />
+      <workItem from="1487260135911" duration="952000" />
     </task>
     <task id="LOCAL-00001" summary="re-import">
       <created>1484108582918</created>
@@ -957,14 +968,21 @@
       <option name="project" value="LOCAL" />
       <updated>1487251585569</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="move illegal break">
+      <created>1487252277054</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1487252277054</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80465000" />
+    <option name="totallyTimeSpent" value="82750000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="18" y="32" width="1405" height="804" extended-state="0" />
+    <frame x="9" y="27" width="1405" height="804" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -973,7 +991,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34269664" sideWeight="0.5084373" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31601125" sideWeight="0.49156272" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31601125" sideWeight="0.49156272" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25752017" sideWeight="0.3974719" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28370786" sideWeight="0.49156272" order="7" side_tool="false" content_ui="tabs" />
@@ -1057,7 +1075,8 @@
     <MESSAGE value="Add user update location" />
     <MESSAGE value="gps tracker service" />
     <MESSAGE value="synchronous message" />
-    <option name="LAST_COMMIT_MESSAGE" value="synchronous message" />
+    <MESSAGE value="move illegal break" />
+    <option name="LAST_COMMIT_MESSAGE" value="move illegal break" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1299,16 +1318,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amqp/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amqp/tracker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="180">
           <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding />
         </state>
@@ -1324,16 +1336,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="375">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+        <state relative-caret-position="429">
+          <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/amqp/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
           <folding />
         </state>
       </provider>
