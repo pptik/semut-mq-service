@@ -59,8 +59,8 @@ function checkState(state, msg) {
             trackerService.updateTracker(msg, function (err, result) {
                 if(err) console.log(err);
                 else console.log(result);
-                break;
             });
+            break;
         case states.GPS_TRACKER_GET_ALL:
             console.log("-------------------------------------------------");
             console.log("request all Tracker");
