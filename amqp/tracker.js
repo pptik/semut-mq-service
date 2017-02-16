@@ -2,15 +2,15 @@ var app = require('../app');
 var trackerModel = require('../models/tracker');
 var appconfig = require('../setup/configs.json');
 
-exports.updateTracker = function (msg) {
+exports.updateTracker = function (msg, callback) {
     var req = JSON.parse(msg.content.toString());
     console.log(req);
 
     trackerModel.updateTracker(req, function (err, response) {
        if(err){
-           console.log({sucess:false, message: "server tidak merespon"})
+           callback({sucess:false, message: "server tidak merespon"}, null);
        }else {
-           console.log(response);
+           callback(null, response);
        }
     });
 };
