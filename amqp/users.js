@@ -17,13 +17,15 @@ exports.updateLocation = function (msg) {
             }).on('complete', function (data, response) {
                 app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(data)), {
                     correlationId: msg.properties.correlationId,
-                    type: appconfig.type.callback
+                  //  type: appconfig.type.callback
+                    type: msg.properties.type
                 });
             });
         }else {
             app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(data)), {
                 correlationId: msg.properties.correlationId,
-                type: appconfig.type.callback
+               // type: appconfig.type.callback
+                type: msg.properties.type
             });
         }
     });
