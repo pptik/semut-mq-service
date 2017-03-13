@@ -67,7 +67,7 @@ exports.updateTracker = function (query, callback) {
 
 exports.getAllTracker = function (query, callback) {
   var trackerCollection = db.collection('tb_tracker');
-    trackerCollection.find({}).toArray(function (err, results) {
+    trackerCollection.find({Data: {$ne: [0,0]}}).toArray(function (err, results) {
         if(err)callback(err, null);
         else callback(null, results);
     });

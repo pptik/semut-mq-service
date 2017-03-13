@@ -7,6 +7,8 @@ var defaultExchangeTopic = appconfig.broker_setup.default_exchange;
 var exchangeName = appconfig.broker_setup.exchange_name;
 var queueServiceName = appconfig.broker_setup.queue_service_name;
 
+var modelTracker = require('../models/tracker');
+
 var states = {
     GPS_TRACKER: appconfig.broker_routes.gps_tracker_route,
     GPS_TRACKER_GET_ALL: appconfig.broker_routes.gps_get_all_tracker,
@@ -50,6 +52,24 @@ function startGpsService () {
 }
 
 
+function broadcastTrackers() {
+    var  exchangeName = appconfig.broker_setup.exchange_name_broadcast;
+    app.chnannel.assertExchange(exchangeName, 'fanout', {durable: false});
+    setInterval(function () {
+        modelTracker.getAllTracker(null, function (err, results) {
+            if(err){
+                console.log(err);
+                results = {success:false};
+            }else {
+                results = {success:true, data:results};
+            }
+            var msg = JSON.stringify(results);
+            app.chnannel.publish(exchangeName, '', new Buffer(msg));
+            //console.log(" [x] Sent %s", msg);
+        });
+    }, 1500);
+}
+
 
 function checkState(state, msg) {
     switch (state){
@@ -78,5 +98,6 @@ function checkState(state, msg) {
 
 module.exports = {
     startGpsConsume: startGpsService,
-    startService: startService
+    startService: startService,
+    broadcastTrackers:broadcastTrackers
 };
