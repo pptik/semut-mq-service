@@ -23,10 +23,10 @@ function connectToBroker() {
                 } else {
                     exports.db = db;
                     console.log("connect mongodb sukses");
-               //     conn.on('error', function connectionClose() {
-               //         console.log('Connection closed, try reconnect ...');
-               //         connectToBroker();
-               //     });
+                    conn.on('error', function connectionClose() {
+                        console.log('Connection closed, try reconnect ...');
+                        connectToBroker();
+                    });
 
                     conn.createChannel(function (err, ch) {
                         if (err) {

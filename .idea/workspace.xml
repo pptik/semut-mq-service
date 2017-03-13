@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/amqp/tests/receive_broadcast.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/semutservice.js" afterPath="$PROJECT_DIR$/amqp/semutservice.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/tracker.js" afterPath="$PROJECT_DIR$/models/tracker.js" />
     </list>
     <ignored path="semut-mq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="287">
@@ -102,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="204">
+              <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -161,11 +158,11 @@
         <option value="$PROJECT_DIR$/amqp/tests/test_user_update_location.js" />
         <option value="$PROJECT_DIR$/amqp/tracker.js" />
         <option value="$PROJECT_DIR$/amqp/users.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/amqp/tests/receive_broadcast.js" />
         <option value="$PROJECT_DIR$/setup/configs.json" />
         <option value="$PROJECT_DIR$/models/tracker.js" />
         <option value="$PROJECT_DIR$/amqp/semutservice.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -800,7 +797,7 @@
       <workItem from="1487251307352" duration="2135000" />
       <workItem from="1487260135911" duration="1233000" />
       <workItem from="1487304424105" duration="319000" />
-      <workItem from="1489420555821" duration="3662000" />
+      <workItem from="1489420555821" duration="3744000" />
     </task>
     <task id="LOCAL-00001" summary="re-import">
       <created>1484108582918</created>
@@ -1012,11 +1009,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487304558748</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="broadcast trackers location every 1.5s via mq fanout">
+      <created>1489424547670</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1489424547670</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87012000" />
+    <option name="totallyTimeSpent" value="87094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="27" width="1405" height="804" extended-state="0" />
@@ -1088,7 +1092,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add db conn" />
     <MESSAGE value="Add &amp; test login [ok]" />
     <MESSAGE value="finishing login" />
     <MESSAGE value="Add login test client" />
@@ -1113,7 +1116,8 @@
     <MESSAGE value="store location &amp; mapview routing" />
     <MESSAGE value="edit config" />
     <MESSAGE value="change type from msg properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="change type from msg properties" />
+    <MESSAGE value="broadcast trackers location every 1.5s via mq fanout" />
+    <option name="LAST_COMMIT_MESSAGE" value="broadcast trackers location every 1.5s via mq fanout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1342,14 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amqp/tests/test_get_user_by_id.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1394,6 +1390,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
           <folding />
         </state>
       </provider>
