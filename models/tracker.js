@@ -79,8 +79,8 @@ function getLocation(lat, lon, callback) {
             callback(result.message, null);
         } else {
           //  console.log(result);
-            if(result['display_name']) {
-                callback(null, result['display_name']);
+            if(result['address']) {
+                callback(null, result['address']['road']+', '+result['address']['suburb']+', '+result['address']['village']+', '+result['address']['state']);
             }else {
                 callback(null, "Lokasi tidak terdeteksi");
             }
