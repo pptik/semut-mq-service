@@ -80,7 +80,11 @@ function getLocation(lat, lon, callback) {
         } else {
           //  console.log(result);
             if(result['address']) {
-                callback(null, result['address']['road']+', '+result['address']['suburb']+', '+result['address']['village']+', '+result['address']['state']);
+                var road = (result['address']['road']) ? result['address']['road']+", " : "";
+                var suburb = (result['address']['suburb']) ? result['address']['suburb']+", " : "";
+                var village = (result['address']['village']) ? result['address']['village'] : "";
+                var state = (result['address']['state']) ? result['address']['state'] : "";
+                callback(null, road+suburb+village+state);
             }else {
                 callback(null, "Lokasi tidak terdeteksi");
             }
