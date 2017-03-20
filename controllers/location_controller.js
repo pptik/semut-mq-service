@@ -4,7 +4,6 @@ var userModel = require('../models/user_model');
 var messages = require('../setup/messages.json');
 var geoPlaceModel = require('../models/geo_place_model');
 var postModel = require('../models/post_model');
-var placeModel = require('../models/place_model');
 
 var valuesIndex = [
     {userLocation:0},
@@ -17,20 +16,6 @@ var valuesIndex = [
     {otherPost: 0},
     {commuterTrain: 0},
     {angkotLocation: 0}
-];
-
-var valuesPlacesInex = [
-    {food:0},
-    {hotel:0},
-    {fashion:0},
-    {gasStation:0},
-    {school:0},
-    {university:0},
-    {hospital:0},
-    {bank:0},
-    {station:0},
-    {departmentStore:0},
-    {parkingArea:0}
 ];
 
 
@@ -64,7 +49,7 @@ exports.store = function (call, callback) {
                             if(err)callback(err, null);
                             else  {
                                 if(parseInt(call['StatusOnline']) == 1){
-                                    mapviewsimple(userID, call, function (err, results) {
+                                    mapview(userID, call, function (err, results) {
 
                                         if(err)callback(err, null);
                                         else callback(null, results);
@@ -82,7 +67,7 @@ exports.store = function (call, callback) {
 };
 
 
-function mapviewsimple(userID, call, callback) {
+function mapview(userID, call, callback) {
     locationModel.getUserLocation(userID, function (err, response) {
         if(err) {
             callback(err, null);
