@@ -19,6 +19,7 @@ var states = {
 
 function startService () {
     app.chnannel.assertExchange(exchangeName, 'topic', {durable: false});
+    app.chnannel.prefetch(1);
     app.chnannel.assertQueue(queueServiceName, {exclusive: false}, function (err, q) {
         if (err) {
             console.log("error : %s",err);

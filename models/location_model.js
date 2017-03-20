@@ -1,6 +1,5 @@
 app = require('../app');
 var moment 	= require('moment');
-var autoIncrement = require("mongodb-autoincrement");
 db = app.db;
 
 var locationCollection = db.collection('tb_location');
