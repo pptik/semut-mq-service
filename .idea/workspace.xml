@@ -781,7 +781,7 @@
       <workItem from="1489738690741" duration="2525000" />
       <workItem from="1489978043794" duration="2042000" />
       <workItem from="1489980420872" duration="4100000" />
-      <workItem from="1489994117322" duration="10000" />
+      <workItem from="1489994117322" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="re-import">
       <created>1484108582918</created>
@@ -1077,11 +1077,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489984601846</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="update query">
+      <created>1489994144234</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1489994144234</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97238000" />
+    <option name="totallyTimeSpent" value="97876000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="38" width="1405" height="804" extended-state="0" />
@@ -1153,7 +1160,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix msg format" />
     <MESSAGE value="Add get profile by id API" />
     <MESSAGE value="Add gps tracker service" />
     <MESSAGE value="Reverse geocoding" />
@@ -1178,7 +1184,8 @@
     <MESSAGE value="location controller" />
     <MESSAGE value="remove placeview" />
     <MESSAGE value="remove place model" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove place model" />
+    <MESSAGE value="update query" />
+    <option name="LAST_COMMIT_MESSAGE" value="update query" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1389,6 +1396,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
