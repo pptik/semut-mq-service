@@ -92,8 +92,8 @@
       <file leaf-file-name="tracker.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/tracker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state relative-caret-position="285">
+              <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -180,7 +180,7 @@
     <option name="x" value="23" />
     <option name="y" value="38" />
     <option name="width" value="1405" />
-    <option name="height" value="804" />
+    <option name="height" value="835" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -803,7 +803,7 @@
       <workItem from="1489978043794" duration="2042000" />
       <workItem from="1489980420872" duration="4100000" />
       <workItem from="1489994117322" duration="705000" />
-      <workItem from="1490761693860" duration="485000" />
+      <workItem from="1490761693860" duration="893000" />
     </task>
     <task id="LOCAL-00001" summary="re-import">
       <created>1484108582918</created>
@@ -1113,15 +1113,22 @@
       <option name="project" value="LOCAL" />
       <updated>1489995227970</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="update tracker query update">
+      <created>1490762209704</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1490762209704</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98418000" />
+    <option name="totallyTimeSpent" value="98826000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="38" width="1405" height="804" extended-state="0" />
-    <editor active="true" />
+    <frame x="23" y="38" width="1405" height="835" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1129,7 +1136,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34269664" sideWeight="0.5084373" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34550563" sideWeight="0.49156272" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34454912" sideWeight="0.49156272" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25752017" sideWeight="0.3974719" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33567417" sideWeight="0.49156272" order="7" side_tool="false" content_ui="tabs" />
@@ -1189,7 +1196,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add get profile by id API" />
     <MESSAGE value="Add gps tracker service" />
     <MESSAGE value="Reverse geocoding" />
     <MESSAGE value="Update gps service" />
@@ -1214,7 +1220,8 @@
     <MESSAGE value="remove placeview" />
     <MESSAGE value="remove place model" />
     <MESSAGE value="update query" />
-    <option name="LAST_COMMIT_MESSAGE" value="update query" />
+    <MESSAGE value="update tracker query update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update tracker query update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1499,8 +1506,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/tracker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="285">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
           <folding />
         </state>
       </provider>

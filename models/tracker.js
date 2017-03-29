@@ -27,6 +27,7 @@ exports.updateTracker = function (query, callback) {
                                     Lokasi: loc,
                                     location:
                                         {
+                                            type: 'Point',
                                             coordinates:[query['data'][1], query['data'][0]]
                                         }
                                 }}, function(err, result) {
