@@ -19,7 +19,17 @@ exports.updateTracker = function (query, callback) {
                                 loc = result;
                             }
                             collection.updateOne({Mac: query['MAC']}
-                                , { $set: { Speed : query['Speed'], Date: query['date'], Time: query['time'], Data: query['data'], Lokasi: loc}}, function(err, result) {
+                                , { $set: {
+                                    Speed : query['Speed'],
+                                    Date: query['date'],
+                                    Time: query['time'],
+                                    Data: query['data'],
+                                    Lokasi: loc,
+                                    location:
+                                        {
+                                            coordinates:[query['data'][1], query['data'][0]]
+                                        }
+                                }}, function(err, result) {
                                     if(err){
                                         console.log(err);
                                         callback(err, null);
