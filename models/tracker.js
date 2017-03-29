@@ -84,6 +84,31 @@ exports.getAllTracker = function (query, callback) {
     });
 };
 
+
+exports.getTrackerNearby = function(query, callback) {
+    var latitude = parseFloat(query['Latitude']);
+    var longitude = parseFloat(query['Longitude']);
+    var trackerCollection = db.collection('tb_tracker');
+    trackerCollection.find(
+        {
+            location:
+            { $near :
+            {
+                $geometry: { type: "Point",  coordinates: [ longitude, latitude ] },
+                $minDistance: 1,
+                $maxDistance: query['Radius']
+            }
+            }
+        }
+    ).limit(query['Limit']).toArray(function (err, trackers) {
+        if(err)callback(err, null);
+        else {
+            callback(null, trackers);
+            console.log(trackers);
+        }
+    });
+};
+
 function getLocation(lat, lon, callback) {
     rest.get('http://nominatim.openstreetmap.org/reverse?format=json&lat='+lat+'&lon='+lon+'&zoom=18&addressdetails=1').on('complete', function(result) {
         if (result instanceof Error) {

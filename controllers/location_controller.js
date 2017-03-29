@@ -4,6 +4,7 @@ var userModel = require('../models/user_model');
 var messages = require('../setup/messages.json');
 var geoPlaceModel = require('../models/geo_place_model');
 var postModel = require('../models/post_model');
+var trackerModel = require('../models/tracker');
 
 var valuesIndex = [
     {userLocation:0},
@@ -91,7 +92,8 @@ function mapview(userID, call, callback) {
                 getTrafficPosts(filter.trafficPost, call, userID),
                 getDisasterPosts(filter.disasterPost, call, userID),
                 getClosurePosts(filter.closurePost, call, userID),
-                getOtherPosts(filter.otherPost, call, userID)
+                getOtherPosts(filter.otherPost, call, userID),
+                getTrackerLocation(filter.angkotLocation, call, userID)
             ]).then(function(results) {
                 callback(null, {success: true, message: "berhasil memuat permintaan", results:results});
             }).catch(function(err) {
@@ -106,6 +108,30 @@ function mapview(userID, call, callback) {
 //---------------- function --------------------//
 
 // M A P  P R O M I S E S
+
+
+function getTrackerLocation(state, query, userID) {
+    return new Promise(function(resolve, reject) {
+        if(state == true){
+            trackerModel.getTrackerNearby(
+                {
+                    Latitude: parseFloat(query['Latitude']),
+                    Longitude: parseFloat(query['Longitude']),
+                    UserID: userID,
+                    Radius: parseFloat(query['Radius']),
+                    Limit: parseInt(query['Limit'])
+
+                }, function (err, results) {
+                    if(results) {
+                        resolve({Trackers:results});
+                    }
+                    else reject(err);
+                });
+        }else {
+            resolve({Trackers:[]});
+        }
+    });
+}
 
 function getUserLocation(state, query, userID) {
     return new Promise(function(resolve, reject) {
