@@ -52,7 +52,7 @@ function startGpsService () {
     });
 }
 
-
+/* Broadcast All Tracker */
 function broadcastTrackers() {
     var  exchangeName = appconfig.broker_setup.exchange_name_broadcast;
     app.chnannel.assertExchange(exchangeName, 'fanout', {durable: false});
@@ -66,10 +66,18 @@ function broadcastTrackers() {
             }
             var msg = JSON.stringify(results);
             app.chnannel.publish(exchangeName, '', new Buffer(msg));
-            //console.log(" [x] Sent %s", msg);
         });
     }, 1500);
 }
+
+
+/* Broadcast Multi Tracker */
+function broadcastMultiTrackers() {
+    var broadcaster = require('./broadcaster');
+    broadcaster.startBroadcastAngkot(app.chnannel);
+    broadcaster.startBroadcastBus(app.chnannel);
+}
+
 
 
 function checkState(state, msg) {
@@ -100,5 +108,6 @@ function checkState(state, msg) {
 module.exports = {
     startGpsConsume: startGpsService,
     startService: startService,
-    broadcastTrackers:broadcastTrackers
+    broadcastTrackers:broadcastTrackers,
+    broadcastMultiTrackers:broadcastMultiTrackers
 };

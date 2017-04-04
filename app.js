@@ -38,6 +38,7 @@ function connectToBroker() {
                             semutService.startGpsConsume();
                             semutService.startService();
                             semutService.broadcastTrackers();
+                            semutService.broadcastMultiTrackers();
                         }
                     });
 

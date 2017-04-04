@@ -85,6 +85,23 @@ exports.getAllTracker = function (query, callback) {
 };
 
 
+exports.getAngkotTracker = function (query, callback) {
+    var trackerCollection = db.collection('tb_tracker');
+    trackerCollection.find({Data: {$ne: [0,0]}, Type: "Angkot"}).toArray(function (err, results) {
+        if(err)callback(err, null);
+        else callback(null, results);
+    });
+};
+
+exports.getBusTracker = function (query, callback) {
+    var trackerCollection = db.collection('tb_tracker');
+    trackerCollection.find({Data: {$ne: [0,0]}, Type: "Bus"}).toArray(function (err, results) {
+        if(err)callback(err, null);
+        else callback(null, results);
+    });
+};
+
+
 exports.getTrackerNearby = function(query, callback) {
     var latitude = parseFloat(query['Latitude']);
     var longitude = parseFloat(query['Longitude']);
