@@ -3,18 +3,23 @@
   "mongodb_uri": "",
   "rest_api_uri": "",
   "broker_setup":{
-    "exchange_name": "semut.service",
-    "exchange_name_broadcast": "broadcast.trackers",
-    "default_exchange": "amq.topic",
-    "queue_service_name": "SemutService",
-    "queue_service_name_gps": "semutGPS"
+    "exchange_name": "",
+    "exchange_name_broadcast": "",
+    "exchange_name_multi_broadcast": "",
+    "default_exchange": "",
+    "queue_service_name": "",
+    "queue_service_name_gps": "",
+    "queue_broadcast_type_angkot": "",
+    "queue_broadcast_type_bus": ""
   },
   "broker_routes":{
-    "service_route" : "semut.services.#",
-    "service_route_gps": "semut.gps",
-    "gps_tracker_route": "semut.gps",
-    "gps_get_all_tracker": "semut.services.getalltracker",
-    "user_update_user_location": "semut.services.updatelocation"
+    "service_route" : "",
+    "service_route_gps": "",
+    "gps_tracker_route": "",
+    "gps_get_all_tracker": "",
+    "user_update_user_location": "",
+    "broadcast_tracker_type_bus": "",
+    "broadcast_tracker_type_angkot": ""
   },
   "type":{
     "callback" : "callback"
