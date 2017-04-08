@@ -14,7 +14,7 @@ function getCCTVNearby(query, callback) {
             { $near :
             {
                 $geometry: { type: "Point",  coordinates: [ longitude, latitude ] },
-                $minDistance: 1,
+                $minDistance: 0,
                 $maxDistance: query['Radius']
             }
             }
