@@ -94,8 +94,8 @@ function mapview(userID, call, callback) {
                 getDisasterPosts(filter.disasterPost, call, userID),
                 getClosurePosts(filter.closurePost, call, userID),
                 getOtherPosts(filter.otherPost, call, userID),
+                getTrackerLocation(filter.angkotLocation, call, userID),
                 getPublicTransPost(filter.publicTransportPost, call, userID),
-                getTrackerLocation(filter.angkotLocation, call, userID)
             ]).then(function(results) {
                 callback(null, {success: true, message: "berhasil memuat permintaan", results:results});
             }).catch(function(err) {
@@ -278,7 +278,7 @@ function getPublicTransPost(state, query, userID) {
                     Limit: parseInt(query['Limit']),
                     Type:7
                 }).then(function (posts) {
-                resolve({Other:posts});
+                resolve({PublicTran:posts});
             }).catch(function (err) {
                 reject(err);
             });
