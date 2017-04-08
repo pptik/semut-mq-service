@@ -27,7 +27,7 @@ exports.store = function (call, callback) {
             if(userID){
                 var query = {
                     'UserID': userID,
-                    'Date': call['Date'],
+                    'Timespan': call['Timespan'],
                     'Altitude': parseFloat(call['Altitude']),
                     'Latitude': parseFloat(call['Latitude']),
                     'Longitude': parseFloat(call['Longitude']),

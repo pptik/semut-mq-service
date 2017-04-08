@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/cctv_model.js" afterPath="$PROJECT_DIR$/models/cctv_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/location_model.js" afterPath="$PROJECT_DIR$/models/location_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/post_model.js" afterPath="$PROJECT_DIR$/models/post_model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/tracker.js" afterPath="$PROJECT_DIR$/models/tracker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/location_controller.js" afterPath="$PROJECT_DIR$/controllers/location_controller.js" />
     </list>
     <ignored path="semut-mq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/amqp/users.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,26 +69,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="geo_place_model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/geo_place_model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="location_model.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/location_model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,21 +79,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_broadcast.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amqp/tests/test_broadcast.js">
+      <file leaf-file-name="location_model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/location_model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="773">
+              <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="receive_broadcast.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amqp/tests/receive_broadcast.js">
+      <file leaf-file-name="location_controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/location_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="63" />
+            <state relative-caret-position="165">
+              <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="semutservice.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -177,7 +164,6 @@
         <option value="$PROJECT_DIR$/models/place_model.js" />
         <option value="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
         <option value="$PROJECT_DIR$/amqp/users.js" />
-        <option value="$PROJECT_DIR$/controllers/location_controller.js" />
         <option value="$PROJECT_DIR$/amqp/tests/receive_broadcast.js" />
         <option value="$PROJECT_DIR$/amqp/tests/test_broadcast.js" />
         <option value="$PROJECT_DIR$/amqp/tests/receive_broadcast_2.js" />
@@ -190,6 +176,7 @@
         <option value="$PROJECT_DIR$/models/cctv_model.js" />
         <option value="$PROJECT_DIR$/models/location_model.js" />
         <option value="$PROJECT_DIR$/models/tracker.js" />
+        <option value="$PROJECT_DIR$/controllers/location_controller.js" />
       </list>
     </option>
   </component>
@@ -233,6 +220,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -309,9 +299,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -833,14 +820,8 @@
       <workItem from="1490765739819" duration="579000" />
       <workItem from="1491286307602" duration="8522000" />
       <workItem from="1491491165091" duration="138000" />
-      <workItem from="1491619624009" duration="207000" />
-    </task>
-    <task id="LOCAL-00004" summary="Add db conn">
-      <created>1484110690573</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1484110690573</updated>
+      <workItem from="1491619624009" duration="267000" />
+      <workItem from="1491621021911" duration="353000" />
     </task>
     <task id="LOCAL-00005" summary="Add &amp; test login [ok]">
       <created>1484114479616</created>
@@ -1178,11 +1159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491491273717</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="update nearby min distance">
+      <created>1491619860233</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1491619860234</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108624000" />
+    <option name="totallyTimeSpent" value="109037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="38" width="1405" height="835" extended-state="0" />
@@ -1194,8 +1182,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34269664" sideWeight="0.5084373" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34454912" sideWeight="0.49156272" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25752017" sideWeight="0.3974719" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34454912" sideWeight="0.49156272" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16554509" sideWeight="0.49156272" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1254,7 +1242,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="synchronous message" />
     <MESSAGE value="move illegal break" />
     <MESSAGE value="store location &amp; mapview routing" />
     <MESSAGE value="edit config" />
@@ -1279,7 +1266,8 @@
     <MESSAGE value="multiple tracker broadcasts" />
     <MESSAGE value="update config example" />
     <MESSAGE value="fix gte time" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix gte time" />
+    <MESSAGE value="update nearby min distance" />
+    <option name="LAST_COMMIT_MESSAGE" value="update nearby min distance" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1445,13 +1433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/location_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amqp/tests/receive_broadcast_2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1511,25 +1492,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/post_model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-848">
           <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/tracker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/geo_place_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/amqp/users.js">
+    <entry file="file://$PROJECT_DIR$/models/user_model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        <state relative-caret-position="-2820">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1542,34 +1530,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/geo_place_model.js">
+    <entry file="file://$PROJECT_DIR$/amqp/semutservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="307">
+          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/tracker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/user_model.js">
+    <entry file="file://$PROJECT_DIR$/amqp/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="50" />
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/location_model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="773">
           <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/location_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding />
         </state>
       </provider>
