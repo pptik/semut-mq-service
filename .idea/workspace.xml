@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/location_controller.js" afterPath="$PROJECT_DIR$/controllers/location_controller.js" />
     </list>
     <ignored path="semut-mq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +61,8 @@
       <file leaf-file-name="location_controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/location_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="285" column="31" selection-start-line="285" selection-start-column="31" selection-end-line="285" selection-end-column="31" />
+            <state relative-caret-position="-578">
+              <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -782,14 +781,7 @@
       <workItem from="1491491165091" duration="138000" />
       <workItem from="1491619624009" duration="267000" />
       <workItem from="1491621021911" duration="412000" />
-      <workItem from="1491634805005" duration="348000" />
-    </task>
-    <task id="LOCAL-00006" summary="finishing login">
-      <created>1484122230033</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1484122230033</updated>
+      <workItem from="1491634805005" duration="1065000" />
     </task>
     <task id="LOCAL-00007" summary="Add login test client">
       <created>1484124400585</created>
@@ -1127,11 +1119,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491621536065</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="public transportation post">
+      <created>1491635175621</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1491635175623</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109444000" />
+    <option name="totallyTimeSpent" value="110161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="38" width="1405" height="835" extended-state="0" />
@@ -1203,7 +1202,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="store location &amp; mapview routing" />
     <MESSAGE value="edit config" />
     <MESSAGE value="change type from msg properties" />
     <MESSAGE value="broadcast trackers location every 1.5s via mq fanout" />
@@ -1228,7 +1226,8 @@
     <MESSAGE value="fix gte time" />
     <MESSAGE value="update nearby min distance" />
     <MESSAGE value="fix timespan" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix timespan" />
+    <MESSAGE value="public transportation post" />
+    <option name="LAST_COMMIT_MESSAGE" value="public transportation post" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1514,8 +1513,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/location_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="285" column="31" selection-start-line="285" selection-start-column="31" selection-end-line="285" selection-end-column="31" />
+        <state relative-caret-position="-578">
+          <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
           <folding />
         </state>
       </provider>
