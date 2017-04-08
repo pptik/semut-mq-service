@@ -16,7 +16,8 @@ var valuesIndex = [
     {closurePost: 0},
     {otherPost: 0},
     {commuterTrain: 0},
-    {angkotLocation: 0}
+    {angkotLocation: 0},
+    {publicTransportPost: 0}
 ];
 
 
@@ -93,6 +94,7 @@ function mapview(userID, call, callback) {
                 getDisasterPosts(filter.disasterPost, call, userID),
                 getClosurePosts(filter.closurePost, call, userID),
                 getOtherPosts(filter.otherPost, call, userID),
+                getPublicTransPost(filter.publicTransportPost, call, userID),
                 getTrackerLocation(filter.angkotLocation, call, userID)
             ]).then(function(results) {
                 callback(null, {success: true, message: "berhasil memuat permintaan", results:results});
@@ -260,6 +262,28 @@ function getOtherPosts(state, query, userID) {
             });
         }else {
             resolve({Other:[]});
+        }
+    });
+}
+
+function getPublicTransPost(state, query, userID) {
+    return new Promise(function(resolve, reject) {
+        if(state == true){
+            postModel.findPostNearby(
+                {
+                    Latitude: parseFloat(query['Latitude']),
+                    Longitude: parseFloat(query['Longitude']),
+                    UserID: userID,
+                    Radius: parseFloat(query['Radius']),
+                    Limit: parseInt(query['Limit']),
+                    Type:7
+                }).then(function (posts) {
+                resolve({Other:posts});
+            }).catch(function (err) {
+                reject(err);
+            });
+        }else {
+            resolve({PublicTran:[]});
         }
     });
 }
