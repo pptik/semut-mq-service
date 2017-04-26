@@ -13,7 +13,7 @@ function insertEmergency(query) {
            "Date" : query['Date'],
            "Latitude" : parseFloat(query['Latitude']),
            "Longitude" : parseFloat(query['Longitude']),
-           "PhoneNumber" : query['Phone'],
+           "PhoneNumber" : query['PhoneNumber'],
            "location" : {
                "type" : "Point",
                "coordinates" : [
