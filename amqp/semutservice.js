@@ -86,6 +86,7 @@ function checkState(state, msg) {
         case states.GPS_TRACKER:
             console.log("-------------------------------------------------");
             console.log("update Tracker");
+            console.log("-------------------------------------------------");
             trackerService.updateTracker(msg, function (err, result) {
                 if(err) console.log(err);
                 else console.log(result);
@@ -94,16 +95,19 @@ function checkState(state, msg) {
         case states.GPS_TRACKER_GET_ALL:
             console.log("-------------------------------------------------");
             console.log("request all Tracker");
+            console.log("-------------------------------------------------");
             trackerService.getAllTracker(msg);
             break;
         case states.USER_UPDATE_USER_LOCATION:
             console.log("-------------------------------------------------");
             console.log("update user loation");
+            console.log("-------------------------------------------------");
             userService.updateLocation(msg);
             break;
-        case state.USER_EMERGENCY_REPORT:
+        case states.USER_EMERGENCY_REPORT:
             console.log("-------------------------------------------------");
             console.log("user emergency");
+            console.log("-------------------------------------------------");
             userService.addEmergency(msg);
             break;
     }

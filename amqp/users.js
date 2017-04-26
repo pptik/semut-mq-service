@@ -28,7 +28,7 @@ exports.updateLocation = function (msg) {
 exports.addEmergency = function (msg) {
   var req = JSON.parse(msg.content.toString());
   emergencyController.insertEmergency(req).then(function (result) {
-
+      console.log(result);
   }).catch(function (err) {
      console.log('Oops, insert emergency error : '+err);
   });
