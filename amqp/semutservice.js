@@ -12,7 +12,8 @@ var modelTracker = require('../models/tracker');
 var states = {
     GPS_TRACKER: appconfig.broker_routes.gps_tracker_route,
     GPS_TRACKER_GET_ALL: appconfig.broker_routes.gps_get_all_tracker,
-    USER_UPDATE_USER_LOCATION : appconfig.broker_routes.user_update_user_location
+    USER_UPDATE_USER_LOCATION : appconfig.broker_routes.user_update_user_location,
+    USER_EMERGENCY_REPORT : appconfig.broker_routes.emergency_report
 };
 
 
@@ -99,6 +100,10 @@ function checkState(state, msg) {
             console.log("-------------------------------------------------");
             console.log("update user loation");
             userService.updateLocation(msg);
+            break;
+        case state.USER_EMERGENCY_REPORT:
+            console.log("-------------------------------------------------");
+            console.log("user emergency");
             break;
     }
 }
