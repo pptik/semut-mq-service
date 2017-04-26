@@ -23,7 +23,7 @@ function insertEmergency(query) {
            },
            "EmergencyID" : parseInt(query['EmergencyID']),
            "EmergencyType" : query['EmergencyType']
-       }
+       };
        emergencyCollection.insertOne(q, function (err, result) {
           if(err)reject(err);
           else resolve(result['ops']);

@@ -104,6 +104,7 @@ function checkState(state, msg) {
         case state.USER_EMERGENCY_REPORT:
             console.log("-------------------------------------------------");
             console.log("user emergency");
+            userService.addEmergency(msg);
             break;
     }
 }

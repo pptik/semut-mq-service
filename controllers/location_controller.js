@@ -246,7 +246,7 @@ function getClosurePosts(state, query, userID) {
 
 function getOtherPosts(state, query, userID) {
     return new Promise(function(resolve, reject) {
-        if(state == true){
+        if(state === true){
             postModel.findPostNearby(
                 {
                     Latitude: parseFloat(query['Latitude']),

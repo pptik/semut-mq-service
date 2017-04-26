@@ -1,5 +1,6 @@
 var app = require('../app');
 var locationController = require('../controllers/location_controller');
+var emergencyController = require('../controllers/emergency_controller');
 
 exports.updateLocation = function (msg) {
     var req = JSON.parse(msg.content.toString());
@@ -20,4 +21,15 @@ exports.updateLocation = function (msg) {
             });
         }
     });
+};
+
+
+
+exports.addEmergency = function (msg) {
+  var req = JSON.parse(msg.content.toString());
+  emergencyController.insertEmergency(req).then(function (result) {
+
+  }).catch(function (err) {
+     console.log('Oops, insert emergency error : '+err);
+  });
 };

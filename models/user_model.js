@@ -79,7 +79,12 @@ exports.checkCompleteSession = function(sessid, callback) {
             if(results[0]) {
                 userCollection.find({ID: results[0].UserID}).toArray(function (err, ress) {
                     if(err)callback(err, null);
-                    else callback(null, {UserID: results[0].UserID, Name: ress[0].Name, Email: ress[0].Email});
+                    else callback(null, {
+                        UserID: results[0].UserID,
+                        Name: ress[0].Name,
+                        Email: ress[0].Email,
+                        PhoneNumber: ress[0].PhoneNumber
+                    });
                 });
             }else {
                 callback(null, null);
