@@ -34,6 +34,7 @@ function connectToBroker() {
                         } else {
                             console.log("sukses bikin channel");
                             exports.chnannel = ch;
+                            exports.connection = conn;
                             var semutService = require('./amqp/semutservice');
                             semutService.startGpsConsume();
                             semutService.startService();

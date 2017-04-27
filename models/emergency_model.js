@@ -26,7 +26,7 @@ function insertEmergency(query) {
        };
        emergencyCollection.insertOne(q, function (err, result) {
           if(err)reject(err);
-          else resolve(result['ops']);
+          else resolve(result['ops'][0]);
        });
     });
 }

@@ -1,6 +1,8 @@
 var app = require('../app');
 var locationController = require('../controllers/location_controller');
 var emergencyController = require('../controllers/emergency_controller');
+var notifier = require('./notification_service');
+var routingKey = require('../setup/configs.json').broker_routes.emergency_notifier;
 
 exports.updateLocation = function (msg) {
     var req = JSON.parse(msg.content.toString());
@@ -29,6 +31,7 @@ exports.addEmergency = function (msg) {
   var req = JSON.parse(msg.content.toString());
   emergencyController.insertEmergency(req).then(function (result) {
       console.log(result);
+      notifier.sendEmergencyNotification(req, routingKey);
   }).catch(function (err) {
      console.log('Oops, insert emergency error : '+err);
   });
