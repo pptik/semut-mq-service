@@ -1,6 +1,7 @@
 var app = require('../app');
 var locationController = require('../controllers/location_controller');
 var emergencyController = require('../controllers/emergency_controller');
+var taxiController = require('../controllers/taxi_controller');
 var notifier = require('./notification_service');
 var routingKey = require('../setup/configs.json').broker_routes.emergency_notifier;
 
@@ -25,6 +26,23 @@ exports.updateLocation = function (msg) {
     });
 };
 
+
+exports.requestTaxi  = msg => {
+    var req = JSON.parse(msg.content.toString());
+    taxiController.requestTaxi(req).then(result => {
+        app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(result)), {
+            correlationId: msg.properties.correlationId,
+            type: msg.properties.type
+        });
+    }).catch(err => {
+        console.log(err);
+        var response = {success:false, message: "Terjadi kesalahan pada server / server tidak merespon"};
+        app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(response)), {
+            correlationId: msg.properties.correlationId,
+            type: msg.properties.type
+        });
+    })
+};
 
 
 exports.addEmergency = function (msg) {
