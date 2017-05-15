@@ -83,7 +83,8 @@ exports.checkCompleteSession = function(sessid, callback) {
                         UserID: results[0].UserID,
                         Name: ress[0].Name,
                         Email: ress[0].Email,
-                        PhoneNumber: ress[0].PhoneNumber
+                        PhoneNumber: ress[0].PhoneNumber,
+                        Gender: ress[0].Gender
                     });
                 });
             }else {

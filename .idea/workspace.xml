@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="notification service">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/taxi_model.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/short_id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="2251a90d-daab-41cf-aead-bf08ee96465f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/taxi_controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/notification_service.js" afterPath="$PROJECT_DIR$/amqp/notification_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/semutservice.js" afterPath="$PROJECT_DIR$/amqp/semutservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/amqp/users.js" afterPath="$PROJECT_DIR$/amqp/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user_model.js" afterPath="$PROJECT_DIR$/models/user_model.js" />
     </list>
     <ignored path="semut-mq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,6 +60,36 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="emergency_controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/emergency_controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="26" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="taxi_controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/taxi_controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/user_model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,21 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taxi_model.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="taxi_model.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/taxi_model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
+            <state relative-caret-position="465">
               <caret line="31" column="29" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post_model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/post_model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-827">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -198,7 +213,6 @@
         <option value="$PROJECT_DIR$/models/location_model.js" />
         <option value="$PROJECT_DIR$/models/tracker.js" />
         <option value="$PROJECT_DIR$/controllers/location_controller.js" />
-        <option value="$PROJECT_DIR$/models/user_model.js" />
         <option value="$PROJECT_DIR$/controllers/emergency_controller.js" />
         <option value="$PROJECT_DIR$/amqp/tests/test_publish_emergency.js" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -211,6 +225,8 @@
         <option value="$PROJECT_DIR$/utils.js" />
         <option value="$PROJECT_DIR$/utils/short_id.js" />
         <option value="$PROJECT_DIR$/models/taxi_model.js" />
+        <option value="$PROJECT_DIR$/models/user_model.js" />
+        <option value="$PROJECT_DIR$/controllers/taxi_controller.js" />
       </list>
     </option>
   </component>
@@ -866,14 +882,7 @@
       <workItem from="1493185837494" duration="6081000" />
       <workItem from="1493258591913" duration="57000" />
       <workItem from="1493281086451" duration="2450000" />
-      <workItem from="1494818419208" duration="3056000" />
-    </task>
-    <task id="LOCAL-00015" summary="update configs example">
-      <created>1484289890312</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1484289890312</updated>
+      <workItem from="1494818419208" duration="3684000" />
     </task>
     <task id="LOCAL-00016" summary="Add get profile by id API">
       <created>1484301938944</created>
@@ -1211,11 +1220,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493283297816</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="taxi model">
+      <created>1494822443193</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1494822443196</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122758000" />
+    <option name="totallyTimeSpent" value="123386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1295,7 +1311,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user, location model" />
     <MESSAGE value="cctv, model geoplace model, message.json" />
     <MESSAGE value="post model, place model" />
     <MESSAGE value="location controller" />
@@ -1320,7 +1335,8 @@
     <MESSAGE value="fix uncompleted query" />
     <MESSAGE value="uncomment" />
     <MESSAGE value="notification service" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification service" />
+    <MESSAGE value="taxi model" />
+    <option name="LAST_COMMIT_MESSAGE" value="taxi model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1333,7 +1349,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/amqp/tests/worker.js" />
     <entry file="file://$PROJECT_DIR$/amqp/tests/emit_log_direct.js" />
     <entry file="file://$PROJECT_DIR$/amqp/tests/emit_log.js" />
     <entry file="file://$PROJECT_DIR$/amqp/tests/receive_logs_direct.js" />
@@ -1539,13 +1554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/user_model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="85" column="56" lean-forward="false" selection-start-line="85" selection-start-column="56" selection-end-line="85" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/amqp/tests/test_login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1579,6 +1587,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1629,14 +1638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/emergency_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup/configs.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -1679,8 +1680,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/taxi_model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
+        <state relative-caret-position="465">
           <caret line="31" column="29" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/emergency_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="26" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user_model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/taxi_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding />
         </state>
       </provider>
