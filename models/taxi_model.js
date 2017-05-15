@@ -7,6 +7,7 @@ var taxiOrderCollection = db.collection('tb_taxi_order');
 function requestOrder(query) {
     return new Promise((resolve, reject) => {
         taxiOrderCollection.insertOne({
+            order_date : new Date(),
             source_lat : parseFloat(query['source_lat']),
             source_lon : parseFloat(query['source_lon']),
             destination_lat : parseFloat(query['destination_lat']),

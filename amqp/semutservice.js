@@ -115,7 +115,7 @@ function checkState(state, msg) {
             console.log("-------------------------------------------------");
             console.log("order a taxi");
             console.log("-------------------------------------------------");
-            //userService.addEmergency(msg);
+            userService.requestTaxi(msg);
             break;
     }
 }
