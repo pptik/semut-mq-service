@@ -13,11 +13,12 @@ var states = {
     GPS_TRACKER: appconfig.broker_routes.gps_tracker_route,
     GPS_TRACKER_GET_ALL: appconfig.broker_routes.gps_get_all_tracker,
     USER_UPDATE_USER_LOCATION : appconfig.broker_routes.user_update_user_location,
-    USER_EMERGENCY_REPORT : appconfig.broker_routes.emergency_report
+    USER_EMERGENCY_REPORT : appconfig.broker_routes.emergency_report,
+    TAXI_ORDER : appconfig.broker_routes.taxi_order
 };
 
 
-
+/** Common Service **/
 function startService () {
     app.chnannel.assertExchange(exchangeName, 'topic', {durable: false});
     app.chnannel.prefetch(1);
@@ -37,7 +38,7 @@ function startService () {
 
 
 
-
+/** Hardware location Services **/
 function startGpsService () {
     app.chnannel.assertExchange(defaultExchangeTopic, 'topic', {durable: true});
     app.chnannel.assertQueue(queueGps, {exclusive: false}, function (err, q) {
@@ -53,7 +54,7 @@ function startGpsService () {
     });
 }
 
-/* Broadcast All Tracker */
+/** Broadcast All Tracker **/
 function broadcastTrackers() {
     var  exchangeName = appconfig.broker_setup.exchange_name_broadcast;
     app.chnannel.assertExchange(exchangeName, 'fanout', {durable: false});
@@ -109,6 +110,12 @@ function checkState(state, msg) {
             console.log("user emergency");
             console.log("-------------------------------------------------");
             userService.addEmergency(msg);
+            break;
+        case states.TAXI_ORDER:
+            console.log("-------------------------------------------------");
+            console.log("order a taxi");
+            console.log("-------------------------------------------------");
+            //userService.addEmergency(msg);
             break;
     }
 }

@@ -3,7 +3,7 @@ var setup = require('../setup/configs.json');
 const exchangeName = setup.broker_setup.exchange_name;
 
 
-function sendEmergencyNotification(msg, routingKey) {
+function sendNotification(msg, routingKey) {
     rabbitConn.createChannel(function (err, ch) {
         if(err) console.log(err);
         else {
@@ -22,5 +22,5 @@ function sendEmergencyNotification(msg, routingKey) {
 
 
 module.exports = {
-    sendEmergencyNotification:sendEmergencyNotification
+    sendNotification:sendNotification
 };

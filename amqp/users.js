@@ -31,7 +31,7 @@ exports.addEmergency = function (msg) {
   var req = JSON.parse(msg.content.toString());
   emergencyController.insertEmergency(req).then(function (result) {
       console.log(result);
-      notifier.sendEmergencyNotification(req, routingKey);
+      notifier.sendNotification(req, routingKey);
   }).catch(function (err) {
      console.log('Oops, insert emergency error : '+err);
   });

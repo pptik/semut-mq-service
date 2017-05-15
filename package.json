@@ -8,6 +8,7 @@
   "dependencies": {
     "amqplib": "^0.5.1",
     "autoincrement": "^1.0.0",
+    "id-shorter": "^0.1.1",
     "jsesc": "^2.4.0",
     "md5": "^2.2.1",
     "moment": "^2.17.1",
