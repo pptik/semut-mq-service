@@ -20,7 +20,7 @@ amqp.connect(configs.broker_uri, function(err, conn) {
             }, {noAck: true});
             ch.assertExchange(exchangeName, 'topic', {durable: false});
             var _s = {
-                SessionID : '',
+                SessionID : '041997e4d9eacfb2070dd44cf316c740',
                 source_lat : 0,
                 source_lon : 0,
                 destination_lat : 0,
