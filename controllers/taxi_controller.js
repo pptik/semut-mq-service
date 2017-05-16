@@ -3,6 +3,12 @@ var userModel = require('../models/user_model');
 var responseMsg = require('../setup/messages.json');
 var locationModel = require('../models/location_model');
 
+var driver_state = {
+    DRIVER_IDLE : 10,
+    DRIVER_ON_WAY : 11,
+    DRIVER_OFF_LINE : 0
+};
+
 function requestTaxi(query) {
     return new Promise(function (resolve, reject) {
         userModel.checkCompleteSession(query['SessionID'],  (err, profile) => {
@@ -49,7 +55,7 @@ module.exports = {
 function selectDriver(array) {
     var arr = [];
     array.forEach((index, i) => {
-        if(index['ID_role'] === 10) arr.push(index);
+        if(index['ID_role'] === 10 && index['Status_online'] === driver_state.DRIVER_IDLE) arr.push(index);
     });
     return arr;
 }

@@ -118,7 +118,7 @@ exports.getProfileById = function(iduser, callback) {
                 delete data['Plat_motor'];
                 delete data['VerifiedNumber'];
                 delete data['Barcode'];
-                delete data['Status_online'];
+            //    delete data['Status_online'];
                 callback(null, data);
             }else {
                 callback(null, null);

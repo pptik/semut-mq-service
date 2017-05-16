@@ -8,7 +8,6 @@ var userModel = require('./user_model');
 
 
 
-
 var cctvCollection = db.collection('tb_cctv');
 
 function test(callback) {
