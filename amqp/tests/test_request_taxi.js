@@ -12,7 +12,7 @@ function generateUuid() {
 
 amqp.connect(configs.broker_uri, function(err, conn) {
     conn.createChannel(function(err, ch) {
-        ch.assertQueue('semut.user.48', {exclusive: true}, function(err, q) {
+        ch.assertQueue('041997e4d9eacfb2070dd44cf316c740', {exclusive: true}, function(err, q) {
             var corr = generateUuid();
             ch.consume(q.queue, function(msg) {
                 console.log(' [.] Got : %s', msg.properties.type);
@@ -21,15 +21,15 @@ amqp.connect(configs.broker_uri, function(err, conn) {
             ch.assertExchange(exchangeName, 'topic', {durable: false});
             var _s = {
                 SessionID : '041997e4d9eacfb2070dd44cf316c740',
-                source_lat : 0,
-                source_lon : 0,
+                source_lat : -6.8881146,
+                source_lon : 107.6248152,
                 destination_lat : 0,
                 destination_lon : 0,
-                source_address : '',
-                destination_address : '',
+                source_address : 'test',
+                destination_address : 'test',
               //  request_by : query['profile'],
                 status : 1,
-                distance : ''
+                distance : 0
             };
             ch.publish(exchangeName, configs.broker_routes.taxi_order, new Buffer(JSON.stringify(_s)),
                 { correlationId: corr, replyTo: q.queue, type: 'Request Taxi'});

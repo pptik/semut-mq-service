@@ -120,6 +120,42 @@ function getUserNearby(query, callback) {
 }
 
 
+function getUserNearby(query, callback) {
+    var latitude = parseFloat(query['Latitude']);
+    var longitude = parseFloat(query['Longitude']);
+    locationCollection.find(
+        {
+            location:
+                { $near :
+                    {
+                        $geometry: { type: "Point",  coordinates: [ longitude, latitude ] },
+                        $minDistance: 0,
+                        $maxDistance: query['Radius']
+                    }
+                }
+        }
+    ).limit(query['Limit']).toArray(function (err, users) {
+        if(err)callback(err, null);
+        else {
+            //callback(null, users);
+            iterateUser(users,function (err, userProfile) {
+                if(err)callback(err, null);
+                else {
+                    //callback(null, userProfile);
+                    iterateFriendInfo(userProfile, query['UserID'], function (err, profileComplete) {
+                        if(err)callback(err);
+                        else callback(null, profileComplete);
+                    });
+                }
+            });
+        }
+    });
+}
+
+
+
+
+
 function iterateUser(items, callback) {
     for(var i = 0; i< items.length; i++){
         items[i].index = i;
