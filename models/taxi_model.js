@@ -22,7 +22,7 @@ function requestOrder(query) {
             if(err)reject(err);
             else {
                 result = result['ops'][0];
-                result['_id'] = shortID.short(result['_id']);
+              //  result['_id'] = shortID.short(result['_id']);
                 resolve(result);
             }
         });

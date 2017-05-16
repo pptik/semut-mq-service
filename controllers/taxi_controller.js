@@ -25,17 +25,24 @@ function requestTaxi(query) {
                         locationModel.getUserNearby(query, (err, result) => {
                            if(err)reject(err);
                            else {
-                               console.log(result.length);
                                var driver = selectDriver(result);
-                               var response =
-                                   {
-                                       success: true,
-                                       message: "Berhasil mengirimkan permintaan",
-                                       driver: driver,
-                                       order: result_order
-                                   };
+                               if(driver.length > 0) {
+                                   userModel.getSession(driver[0]['ID'], (err, session) => {
+                                       if(err)reject(err);
+                                       else {
+                                           var response =
+                                               {
+                                                   success: true,
+                                                   message: "Berhasil mengirimkan permintaan",
+                                                   driver: driver,
+                                                   order: result_order,
+                                                   driver_queue : session,
+                                               };
 
-                               resolve(response);
+                                           resolve(response);
+                                       }
+                                   });
+                               }else resolve({success:false, message:"Maff, semua driver sedang sibuk atau tidak dalam jangkauan. Silahkan hubungi call center untuk mendapatkan bantuan"});
                            }
                         });
                     }).catch(err => {
@@ -53,9 +60,11 @@ module.exports = {
 };
 
 function selectDriver(array) {
-    var arr = [];
-    array.forEach((index, i) => {
-        if(index['ID_role'] === 10 && index['Status_online'] === driver_state.DRIVER_IDLE) arr.push(index);
-    });
-    return arr;
+    if(array.length > 0) {
+        var arr = [];
+        array.forEach((index, i) => {
+            if (index['ID_role'] === 10 && index['Status_online'] === driver_state.DRIVER_IDLE) arr.push(index);
+        });
+        return arr;
+    }else return array;
 }
