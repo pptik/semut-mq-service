@@ -34,6 +34,12 @@ exports.requestTaxi  = msg => {
             correlationId: msg.properties.correlationId,
             type: msg.properties.type
         });
+        if(result['success']){
+            app.chnannel.sendToQueue(result['driver_queue'], new Buffer(JSON.stringify(result)), {
+                correlationId: msg.properties.correlationId,
+                type: msg.properties.type
+            });
+        }
     }).catch(err => {
         console.log(err);
         var response = {success:false, message: "Terjadi kesalahan pada server / server tidak merespon"};
