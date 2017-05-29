@@ -27,7 +27,7 @@ amqp.connect(configs.broker_uri, function(err, conn) {
         ch.assertExchange(ex, 'topic', {durable: false});
         ch.assertQueue('', {exclusive: true}, function(err, q) {
             console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q.queue);
-            ch.bindQueue(q.queue, ex, 'broadcast.tracker.bus');
+            ch.bindQueue(q.queue, ex, 'broadcast.tracker.bus.lampung');
             ch.consume(q.queue, function(msg) {
                 console.log(" [x] %s", msg.content.toString());
             }, {noAck: true});

@@ -102,6 +102,17 @@ exports.getBusTracker = function (query, callback) {
 };
 
 
+exports.getBusTrackerByAppID = query => {
+    return new Promise((resolve, reject) => {
+        var trackerCollection = db.collection('tb_tracker');
+        trackerCollection.find({Data: {$ne: [0,0]}, Type: "Bus", AppID: query['AppID']}).toArray((err, results) => {
+            if(err) reject(err);
+            else resolve(results);
+        });
+    })
+};
+
+
 exports.getTrackerNearby = function(query, callback) {
     var latitude = parseFloat(query['Latitude']);
     var longitude = parseFloat(query['Longitude']);

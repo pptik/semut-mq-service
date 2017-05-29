@@ -78,6 +78,8 @@ function broadcastMultiTrackers() {
     var broadcaster = require('./broadcasts/commons');
     broadcaster.startBroadcastAngkot(app.chnannel);
     broadcaster.startBroadcastBus(app.chnannel);
+    var broadcastLampung = require('./broadcasts/lampung');
+    broadcastLampung.startBroadcastBus(app.chnannel);
 }
 
 
