@@ -73,9 +73,9 @@ function broadcastTrackers() {
 }
 
 
-/* Broadcast Multi Tracker */
+/** Broadcast Multi Tracker **/
 function broadcastMultiTrackers() {
-    var broadcaster = require('./broadcaster');
+    var broadcaster = require('./broadcasts/commons');
     broadcaster.startBroadcastAngkot(app.chnannel);
     broadcaster.startBroadcastBus(app.chnannel);
 }

@@ -1,5 +1,5 @@
-var trackerModel = require('../models/tracker');
-var configs = require('../setup/configs.json');
+var trackerModel = require('../../models/tracker');
+var configs = require('../../setup/configs.json');
 
 function startBroadcastAngkot(ch) {
         ch.assertExchange(configs.broker_setup.exchange_name_multi_broadcast, 'topic', {durable: false});
