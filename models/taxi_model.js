@@ -17,7 +17,8 @@ function requestOrder(query) {
             destination_address : query['destination_address'],
             request_by : query['Profile'],
             status : 1,
-            distance : parseFloat(query['distance'])
+            distance : parseFloat(query['distance']),
+            biaya: query['biaya']
         }, (err, result) => {
             if(err)reject(err);
             else {
