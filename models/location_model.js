@@ -163,22 +163,32 @@ function iterateUser(items, callback) {
     var maxCount = (items.length > 0) ? items.length-1 : 0;
     if(items.length > 0) {
         items.forEach(function (index) {
+           // console.log(index);
             userModel.getProfileById(index['UserID'], function (err, profile) {
+                console.log(index);
                 if (err)callback(err, null);
                 else {
-                    delete index['_id'];
-                    delete index['UserID'];
-                    delete index['flag'];
-                    delete index['StatusOnline'];
-                    delete index['location'];
-                    profile.LastLocation = index;
-                    arrResult.push(profile);
-                    if (index['index'] == maxCount) {
-                        for (var i = 0; i < arrResult.length; i++) {
-                            delete arrResult[i].LastLocation.index;
+                    //console.log(profile);
+                    if(profile != null) {
+                        delete index['_id'];
+                        delete index['UserID'];
+                        delete index['flag'];
+                        delete index['StatusOnline'];
+                        delete index['location'];
+                        profile.LastLocation = index;
+                        arrResult.push(profile);
+                        if (index['index'] == maxCount) {
+                            for (var i = 0; i < arrResult.length; i++) {
+                                delete arrResult[i].LastLocation.index;
+                            }
+                            callback(null, arrResult);
                         }
-                        callback(null, arrResult);
+                    }else {
+                        if (index['index'] == maxCount) {
+                            callback(null, arrResult);
+                        }
                     }
+
                 }
             });
         });
