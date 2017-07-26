@@ -15,6 +15,19 @@ exports.updateTracker = function (msg, callback) {
     });
 };
 
+exports.updateElangTracker = function (msg, callback) {
+    var req = JSON.parse(msg.content.toString());
+    console.log(req);
+
+    trackerModel.updateElangTracker(req, function (err, response) {
+       if(err){
+           callback({sucess:false, message: "server tidak merespon"}, null);
+       }else {
+           callback(null, response);
+       }
+    });
+};
+
 
 exports.getAllTracker = function (msg) {
     var req = JSON.parse(msg.content.toString());
@@ -34,3 +47,4 @@ exports.getAllTracker = function (msg) {
 
     });
 };
+

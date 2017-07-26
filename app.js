@@ -3,10 +3,6 @@ var amqp = require('amqplib/callback_api');
 var database = require('./setup/database');
 
 
-
-
-
-
 function connectToBroker() {
     amqp.connect(appconfig.broker_uri, function(err, conn) {
         if(err){
@@ -23,10 +19,10 @@ function connectToBroker() {
                 } else {
                     exports.db = db;
                     console.log("connect mongodb sukses");
-                    conn.on('error', function connectionClose() {
+                    /*conn.on('error', function connectionClose() {
                         console.log('Connection closed, try reconnect ...');
                         connectToBroker();
-                    });
+                    });*/
 
                     conn.createChannel(function (err, ch) {
                         if (err) {
@@ -40,6 +36,7 @@ function connectToBroker() {
                             semutService.startService();
                             semutService.broadcastTrackers();
                             semutService.broadcastMultiTrackers();
+							semutService.startElangGpsService();
                         }
                     });
 
