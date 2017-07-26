@@ -30,7 +30,6 @@ function requestTaxi(query) {
                                    userModel.getSession(driver[0]['ID'], (err, session) => {
                                        if(err)reject(err);
                                        else {
-										   //console.log("driverID: " + driver[0]['ID']);
                                            var response =
                                                {
                                                    success: true,
@@ -39,12 +38,11 @@ function requestTaxi(query) {
                                                    order: result_order,
                                                    driver_queue : session,
                                                };
-											//console.log("driverQueue: " + response.driver_queue);
-											
+
                                            resolve(response);
                                        }
                                    });
-                               }else resolve({success:false, message:"Maaf, semua driver sedang sibuk atau tidak dalam jangkauan. Silahkan hubungi call center untuk mendapatkan bantuan"});
+                               }else resolve({success:false, message:"Maff, semua driver sedang sibuk atau tidak dalam jangkauan. Silahkan hubungi call center untuk mendapatkan bantuan"});
                            }
                         });
                     }).catch(err => {

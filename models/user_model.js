@@ -45,7 +45,6 @@ exports.initSession = function (userID, callback) {
 };
 
 exports.getSession = function (userID, callback) {
-	//console.log("UserID = "+userID);
     sessionCollection.find({"UserID": userID, "EndTime": "0000-00-00 00:00:00"}).toArray(function (err, results) {
         if(err){
             callback(err, null);

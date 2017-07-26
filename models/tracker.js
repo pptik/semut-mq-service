@@ -75,99 +75,6 @@ exports.updateTracker = function (query, callback) {
     });
 };
 
-exports.updateElangTracker = function (query, callback) {
-    db.collection('tb_elang_tracker', function(err, collection) {
-        collection.find({ID: query['ID']}).toArray(function (err, items) {
-            if(err){
-                callback(err, null);
-            }else {
-				var loc;
-                if(items[0]){
-                    //console.log(query['data']);
-                    if(query['data'][0] != 0){
-                        getLocation(query['data'][0], query['data'][1], function (err, result) {
-                           
-                            if(err){
-                                loc = "Lokasi tidak terdeteksi"
-                            }else {
-                                loc = result;
-                            }
-                            collection.updateOne({ID: query['ID']}
-                                , { $set: {
-                                    Speed : query['Speed'],
-                                    Date: query['date'],
-                                    Time: query['time'],
-                                    Data: query['data'],
-                                    Lokasi: loc,
-                                    location:
-                                        {
-                                            type: 'Point',
-                                            coordinates:[query['data'][1], query['data'][0]]
-                                        },
-									Desc: query['desc']
-                                }}, function(err, result) {
-                                    if(err){
-                                        console.log(err);
-                                        callback(err, null);
-                                    }else {
-                                        db.collection('tb_elang_tracker_history', function (err, collection) {
-                                            if(err){
-                                                callback(err,null);
-                                            }else {
-                                                var _query = {
-                                                    ID: query['ID'],
-                                                    Speed : query['Speed'],
-                                                    Date: query['date'],
-                                                    Time: query['time'],
-                                                    Data: query['data'],
-                                                    Lokasi: loc,
-													Desc: query['desc']
-                                                };
-                                                collection.insertOne(_query, function (err, result) {
-                                                    if (err) {
-                                                        callback(err, null);
-                                                    } else {
-                                                        callback(null, {success: true, message: "berhasil update"});
-                                                    }
-                                                });
-
-                                            }
-                                        });
-
-                                    }
-                                });
-                        });
-
-                    }else {
-                        callback(null, {success: false, message: "device mengirim lokasi 0"});
-
-                    }
-
-                }else {
-                    //callback(null, {success: false, message: "device tidak terdaftar"});
-					 var _query = {
-                                                    ID: query['ID'],
-                                                    Speed : query['Speed'],
-                                                    Date: query['date'],
-                                                    Time: query['time'],
-                                                    Data: query['data'],
-                                                    Lokasi: loc,
-													Desc: query['desc']
-                                                };
-												
-					 collection.insertOne(_query, function (err, result) {
-                                                    if (err) {
-                                                        callback(err, null);
-                                                    } else {
-                                                        callback(null, {success: true, message: "berhasil update"});
-                                                    }
-                                                });
-                }
-            }
-        });
-    });
-};
-
 
 exports.getAllTracker = function (query, callback) {
   var trackerCollection = db.collection('tb_tracker');
@@ -205,14 +112,6 @@ exports.getBusTrackerByAppID = query => {
     })
 };
 
-exports.getElangTracker = function (query, callback) {
-    var trackerCollection = db.collection('tb_elang_tracker');
-        trackerCollection.find({Data: {$ne: [0,0]}}).toArray((err, results) => {
-			if(err)callback(err, null);
-			else callback(null, results);
-			//console.log("elang model: "+JSON.stringify(results));
-        });
-};
 
 exports.getTrackerNearby = function(query, callback) {
     var latitude = parseFloat(query['Latitude']);
