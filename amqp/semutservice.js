@@ -14,7 +14,8 @@ var states = {
     GPS_TRACKER_GET_ALL: appconfig.broker_routes.gps_get_all_tracker,
     USER_UPDATE_USER_LOCATION : appconfig.broker_routes.user_update_user_location,
     USER_EMERGENCY_REPORT : appconfig.broker_routes.emergency_report,
-    TAXI_ORDER : appconfig.broker_routes.taxi_order
+    TAXI_ORDER : appconfig.broker_routes.taxi_order,
+	ELANG_TRACKER: appconfig.broker_routes.elang_tracker_route
 };
 
 
@@ -54,6 +55,27 @@ function startGpsService () {
     });
 }
 
+
+
+/** Elang location Services **/
+function startElangGpsService () {
+    app.chnannel.assertExchange(defaultExchangeTopic, 'topic', {durable: true});
+    app.chnannel.assertQueue("elangGPS", {exclusive: false}, function (err, q) {
+        if (err) {
+            console.log("error : %s",err);
+        } else {
+            app.chnannel.bindQueue(q.queue, defaultExchangeTopic, appconfig.broker_routes.elang_tracker_route);
+            app.chnannel.consume(q.queue, function (msg) {
+                console.log(msg.content.toString());
+                checkState(msg.fields.routingKey, msg);
+            }, {noAck: true});
+        }
+    });
+}
+
+
+
+
 /** Broadcast All Tracker **/
 function broadcastTrackers() {
     var  exchangeName = appconfig.broker_setup.exchange_name_broadcast;
@@ -80,6 +102,8 @@ function broadcastMultiTrackers() {
     broadcaster.startBroadcastBus(app.chnannel);
     var broadcastLampung = require('./broadcasts/lampung');
     broadcastLampung.startBroadcastBus(app.chnannel);
+	var broadcastElang = require('./broadcasts/elanga');
+	broadcastElang.startBroadcastElang(app.chnannel)
 }
 
 
@@ -119,6 +143,15 @@ function checkState(state, msg) {
             console.log("-------------------------------------------------");
             userService.requestTaxi(msg);
             break;
+		case states.ELANG_TRACKER:
+            console.log("-------------------------------------------------");
+            console.log("update Elang Tracker");
+            console.log("-------------------------------------------------");
+            trackerService.updateElangTracker(msg, function (err, result) {
+                if(err) console.log(err);
+                else console.log(result);
+            });
+            break;
     }
 }
 
@@ -127,6 +160,7 @@ function checkState(state, msg) {
 module.exports = {
     startGpsConsume: startGpsService,
     startService: startService,
+	startElangGpsService:startElangGpsService,
     broadcastTrackers:broadcastTrackers,
     broadcastMultiTrackers:broadcastMultiTrackers
 };

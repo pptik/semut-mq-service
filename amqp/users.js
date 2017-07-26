@@ -30,11 +30,13 @@ exports.updateLocation = function (msg) {
 exports.requestTaxi  = msg => {
     var req = JSON.parse(msg.content.toString());
     taxiController.requestTaxi(req).then(result => {
+		console.log("TAG::users.js::request_taxi::orderer_queue : "+msg.properties.replyTo);
         app.chnannel.sendToQueue(msg.properties.replyTo, new Buffer(JSON.stringify(result)), {
             correlationId: msg.properties.correlationId,
             type: msg.properties.type
         });
         if(result['success']){
+			console.log("TAG::users.js::request_taxi::driver_queue : "+result['driver_queue']);
             app.chnannel.sendToQueue(result['driver_queue'], new Buffer(JSON.stringify(result)), {
                 correlationId: msg.properties.correlationId,
                 type: msg.properties.type
