@@ -50,5 +50,6 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+setup/configs.json
 
 # End of https://www.gitignore.io/api/node
