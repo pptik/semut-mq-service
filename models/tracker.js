@@ -99,6 +99,9 @@ exports.updateElangTracker = function (query, callback) {
                                     Date: query['date'],
                                     Time: query['time'],
                                     Data: query['data'],
+                                    Jabatan: query['jabatan'],
+                                    Satuan: query['satuan'],
+									Phone: query['phone'],
                                     Lokasi: loc,
                                     location:
                                         {
