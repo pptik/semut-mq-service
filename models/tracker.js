@@ -99,6 +99,7 @@ exports.updateElangTracker = function (query, callback) {
                                     Date: query['date'],
                                     Time: query['time'],
                                     Data: query['data'],
+									Nama: query['nama'],
                                     Jabatan: query['jabatan'],
                                     Satuan: query['satuan'],
 									Phone: query['phone'],
@@ -124,6 +125,10 @@ exports.updateElangTracker = function (query, callback) {
                                                     Date: query['date'],
                                                     Time: query['time'],
                                                     Data: query['data'],
+													Nama: query['nama'],
+													Jabatan: query['jabatan'],
+													Satuan: query['satuan'],
+													Phone: query['phone'],
                                                     Lokasi: loc,
 													Desc: query['desc']
                                                 };
@@ -155,6 +160,10 @@ exports.updateElangTracker = function (query, callback) {
                                                     Date: query['date'],
                                                     Time: query['time'],
                                                     Data: query['data'],
+													Nama: query['nama'],
+													Jabatan: query['jabatan'],
+													Satuan: query['satuan'],
+													Phone: query['phone'],
                                                     Lokasi: loc,
 													Desc: query['desc']
                                                 };
