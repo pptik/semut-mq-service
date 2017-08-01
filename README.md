@@ -2,5 +2,5 @@
 
 deps status : 
 
-[![Android Arsenal](https://david-dm.org/pptik/semut-mq-service.svg)](https://david-dm.org/pptik/semut-mq-service.svg)
+[![dependencies stat](https://david-dm.org/pptik/semut-mq-service.svg)](https://david-dm.org/pptik/semut-mq-service)
 
